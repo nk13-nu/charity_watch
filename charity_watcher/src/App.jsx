@@ -1,10 +1,10 @@
+import charities from '../data/charities_with_deprivation.json'
+
 function App(){
-  return (
-    <div>
-      <h1>Charity Watch</h1>
-      <p>A dashboard to map micro, small and medium sized charities in Tower Hamlets</p>
-    </div>
-  )
+
+  const micro = charities.filter(c => c['Size Band'] === 'Micro').length;
+  const small;
+  const medium;
 }
 
 export default App
