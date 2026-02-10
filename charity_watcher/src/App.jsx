@@ -8,7 +8,9 @@ function App(){
 
   return(
     <div style={{ padding: '40px' }}>
-      <h1>Charity Watcher</h1>
+      <header className='app_header'>
+        <h1>Charity Watcher</h1>
+      </header>
       <p>There are {charities.length} charities on record</p>
 
       <h2>Tower Hamlets Charities By size:</h2>

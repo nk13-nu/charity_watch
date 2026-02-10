@@ -2,5 +2,25 @@ body {
   margin:0;
   background: #1E1E1E;
   color: #bbbfc0;
-  font-family: sans-serif;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.app_layout{
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 52px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  min-height: 100vh;
+}
+
+/* Main Header Bar (this is the main bar where I will display the title and the about button)*/ 
+.app_header{
+  grid-area: header;
+  background: #4E5356; /* Colour from figma design*/
+  border-bottom: 1px solid #5d6066;
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
 }
