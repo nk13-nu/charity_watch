@@ -5,12 +5,12 @@ body {
   font-family: 'DM Sans', system-ui, sans-serif;
 }
 
-.app_layout{
+.app-layout{
   display: grid;
   grid-template-columns: 260px 1fr;
   grid-template-rows: 52px 1fr;
   grid-template-areas:
-    "sidebar header"
+    "header header"
     "sidebar main";
   min-height: 100vh;
 }
@@ -32,6 +32,12 @@ body {
   color: #e8edf5;
 }
 
+/* SIDE BAR*/
+.app-sidebar {
+  grid-area: sidebar;
+  background: #0b1018;
+  border-right: 1px solid #1a2a48;
+}
 
 /* MAIN APP AREA (WHERE CARDS, MAP AND CHARTS WILL GO IN)*/
 .app-main {

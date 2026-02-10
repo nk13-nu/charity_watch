@@ -18,6 +18,11 @@ function App(){
         <h1>Charity Watcher</h1>
       </header>
 
+      {/* Side Bar */}
+      <aside className='app-sidebar'>
+
+      </aside>
+
       <main className='app-main'>
         
         {/* Stats Cards*/}
