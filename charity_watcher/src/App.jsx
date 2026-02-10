@@ -1,4 +1,5 @@
 import charities from '../data/charities_with_deprivation.json'
+import { MapContainer, TileLayer, useMap } from 'react-leaflet' //code from https://react-leaflet.js.org/docs/start-installation/ 
 
 function App(){
 
@@ -53,7 +54,19 @@ function App(){
 
         {/*Map Card*/}
         <div className="map-content-row">
-          <div className="map-card">Map here</div>
+          <div className="map-card">
+            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+              <TileLayer
+                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+                attribution='&copy; CartoDB'
+              />
+              <Marker position={[51.505, -0.09]}>
+                <Popup>
+                  A pretty CSS3 popup. <br /> Easily customizable.
+                </Popup>
+              </Marker>
+            </MapContainer>
+          </div>
         </div>
 
         {/*Chart Cards*/}
