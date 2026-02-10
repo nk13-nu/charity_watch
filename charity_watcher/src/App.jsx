@@ -10,10 +10,12 @@ function App(){
   const averageIMD = validIMDScore.reduce((sum, c) => sum + c.imdScore, 0)
 
   return(
-    <div style={{ padding: '40px' }}>
+    <div className='app-layout'>
+
       <header className='app_header'>
         <h1>Charity Watcher</h1>
       </header>
+
       <p>There are {charities.length} charities on record</p>
 
       <h2>Tower Hamlets Charities By size:</h2>
@@ -22,6 +24,8 @@ function App(){
       <p>Medium: {medium}</p>
 
       <p>Average IMD Score in Tower Hamlets {averageIMD}</p>
+
+
     </div>
   )
 
