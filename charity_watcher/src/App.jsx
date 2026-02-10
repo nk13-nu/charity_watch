@@ -14,52 +14,53 @@ function App(){
   return(
     <div className='app-layout'>
 
-
-      <header className='app_header'>
+      <header className='app-header'>
         <h1>Charity Watcher</h1>
       </header>
 
-      {/* Stats Cards*/}
-      <div className=''>
-        <div className=''>
-          <div className=''>Total Charities</div>
-          <div className=''>{charities.length}</div>
-          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+      <main className='app-main'>
+        
+        {/* Stats Cards*/}
+        <div className='stats-row'>
+          <div className='stats-card'>
+            <div className='stats-card-title'>Total Charities</div>
+            <div className='stats-card-value'>{charities.length}</div>
+            <div className='stats-card-text'>{micro} micro -- {small} small -- {medium} medium</div>
+          </div>
+
+          <div className='stats-card'>
+            <div className='stats-card-title'>Total Income</div>
+            <div className='stats-card-value'>{charities.length}</div> 
+            <div className='stats-card-text'>{micro} micro -- {small} small -- {medium} medium</div>
+          </div>
+
+          <div className='stats-card'>
+            <div className='stats-card-title'>Average IMD Score</div>
+            <div className='stats-card-value'>{averageIMD}</div>
+            <div className='stats-card-text'>{micro} micro -- {small} small -- {medium} medium</div>
+          </div>
+
+          <div className='stats-card'>
+            <div className='stats-card-title'>LSOA Coverage</div>
+            <div className='stats-card-value'>{uniqueLSOAs} Lower Layer Output Areas</div>
+            <div className='stats-card-text'>{micro} micro -- {small} small -- {medium} medium</div>
+          </div>
         </div>
-      </div>
 
-      <div className=''>
-        <div className=''>
-          <div className=''>Total Income</div>
-          <div className=''>{charities.length}</div>
-          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        {/*Map Card*/}
+        <div className="map-content-row">
+          <div className="map-card">Map here</div>
         </div>
-      </div>
 
-      <div className=''>
-        <div className=''>
-          <div className=''>Average IMD Score</div>
-          <div className=''>{averageIMD}</div>
-          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        {/*Chart Cards*/}
+        <div className="chart-content-row">
+          <div className="chart-card">Bubble chart goes here</div>
+          <div className="chart-card">IMD Chart here</div>
+          <div className="chart-card">size band donun here</div>
         </div>
-      </div>
 
-      <div className=''>
-        <div className=''>
-          <div className=''>LSOA Coverage</div>
-          <div className=''>{uniqueLSOAs} Lower Layer Output Areas</div>
-          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
-        </div>
-      </div>
 
-      <p>There are {charities.length} charities on record</p>
-
-      <h2>Tower Hamlets Charities By size:</h2>
-      <p>Micro: {micro}</p>
-      <p>Small: {small}</p>
-      <p>Medium: {medium}</p>
-
-      <p>Average IMD Score in Tower Hamlets {averageIMD}</p>
+      </main>
 
 
     </div>
