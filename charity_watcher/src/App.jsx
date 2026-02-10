@@ -1,6 +1,7 @@
-import charities from '../data/charities_with_deprivation.json'
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet' //code from https://react-leaflet.js.org/docs/start-installation/ 
+import charities from '../data/charities_with_deprivation.json';
+import { MapContainer, TileLayer, Marker, Popup, GeoJSON, CircleMarker} from 'react-leaflet'; //code from https://react-leaflet.js.org/docs/start-installation/ 
 import 'leaflet/dist/leaflet.css';
+import lsoaData from '../data/lsoa_clean.json';
 
 function App(){
 
@@ -59,10 +60,20 @@ function App(){
         {/*Map Card*/}
         <div className="map-content-row">
           <div className="map-card">
-            <MapContainer center={[51.525, -0.0347]} zoom={13} scrollWheelZoom={false} style={{padding:0, overflow:"hidden"}}>
+            <MapContainer center={[51.525, -0.0347]} zoom={13} scrollWheelZoom={true} style={{padding:0, overflow:"hidden"}}>
               <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; CartoDB'
+              />
+              <GeoJSON
+                data={lsoaData}
+                style={() => ({
+                  fillColor: '#f87171',
+                  fillOpacity: 0.15,
+                  color: '#f87171',
+                  weight: 1,
+                  opacity: 0.2,
+                })}
               />
             </MapContainer>
           </div>
