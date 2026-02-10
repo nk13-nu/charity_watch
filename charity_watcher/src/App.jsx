@@ -6,6 +6,9 @@ function App(){
   const small = charities.filter(c => c['Charity Size Band'] === "Small").length;
   const medium = charities.filter(c => c['Charity Size Band'] === "Medium").length;
 
+  const validIMDScore = charities.filter(c => c['Index of Multiple Deprivation (IMD) Score'] !== null)
+  const averageIMD = validIMDScore.reduce((sum, c) => sum + c.imdScore, 0)
+
   return(
     <div style={{ padding: '40px' }}>
       <header className='app_header'>
@@ -17,6 +20,8 @@ function App(){
       <p>Micro: {micro}</p>
       <p>Small: {small}</p>
       <p>Medium: {medium}</p>
+
+      <p>Average IMD Score in Tower Hamlets {averageIMD}</p>
     </div>
   )
 
