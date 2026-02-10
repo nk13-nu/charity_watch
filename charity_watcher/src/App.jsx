@@ -12,9 +12,19 @@ function App(){
   return(
     <div className='app-layout'>
 
+
       <header className='app_header'>
         <h1>Charity Watcher</h1>
       </header>
+
+      {/* Stats Cards*/}
+      <div className=''>
+        <div className=''>
+          <div className=''>Total Charities</div>
+          <div className=''>{charities.length}</div>
+          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        </div>
+      </div>
 
       <p>There are {charities.length} charities on record</p>
 
