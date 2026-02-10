@@ -9,6 +9,8 @@ function App(){
   const validIMDScore = charities.filter(c => c['Index of Multiple Deprivation (IMD) Score'] !== null)
   const averageIMD = validIMDScore.reduce((sum, c) => sum + c.imdScore, 0)
 
+  const uniqueLSOAs = new Set(charities.map(c => c['LSOA code (2021)'])).size
+
   return(
     <div className='app-layout'>
 
@@ -22,6 +24,30 @@ function App(){
         <div className=''>
           <div className=''>Total Charities</div>
           <div className=''>{charities.length}</div>
+          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        </div>
+      </div>
+
+      <div className=''>
+        <div className=''>
+          <div className=''>Total Income</div>
+          <div className=''>{charities.length}</div>
+          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        </div>
+      </div>
+
+      <div className=''>
+        <div className=''>
+          <div className=''>Average IMD Score</div>
+          <div className=''>{averageIMD}</div>
+          <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
+        </div>
+      </div>
+
+      <div className=''>
+        <div className=''>
+          <div className=''>LSOA Coverage</div>
+          <div className=''>{uniqueLSOAs} Lower Layer Output Areas</div>
           <div className=''>{micro} micro -- {small} small -- {medium} medium</div>
         </div>
       </div>
