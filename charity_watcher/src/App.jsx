@@ -20,7 +20,6 @@ function App(){
 
       {/* Side Bar */}
       <aside className='app-sidebar'>
-
       </aside>
 
       <main className='app-main'>
