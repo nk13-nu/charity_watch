@@ -83,7 +83,6 @@ function App(){
         <div className="chart-content-row">
           <div className="chart-card">Bubble chart goes here</div>
           <div className="chart-card">IMD Chart here</div>
-          <div className="chart-card">size band donun here</div>
         </div>
 
 
