@@ -1,15 +1,19 @@
 import charities from '../data/charities_with_deprivation.json'
-import { MapContainer, TileLayer, useMap } from 'react-leaflet' //code from https://react-leaflet.js.org/docs/start-installation/ 
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet' //code from https://react-leaflet.js.org/docs/start-installation/ 
+import 'leaflet/dist/leaflet.css';
 
 function App(){
 
+  //Charity size variables
   const micro = charities.filter(c => c['Charity Size Band'] === 'Micro').length;
   const small = charities.filter(c => c['Charity Size Band'] === "Small").length;
   const medium = charities.filter(c => c['Charity Size Band'] === "Medium").length;
 
+  //Imd Socre variables
   const validIMDScore = charities.filter(c => c['Index of Multiple Deprivation (IMD) Score'] !== null)
   const averageIMD = validIMDScore.reduce((sum, c) => sum + c.imdScore, 0)
 
+  // Number of unique LSOAs
   const uniqueLSOAs = new Set(charities.map(c => c['LSOA code (2021)'])).size
 
   return(
@@ -55,16 +59,11 @@ function App(){
         {/*Map Card*/}
         <div className="map-content-row">
           <div className="map-card">
-            <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false}>
+            <MapContainer center={[51.525, -0.0347]} zoom={13} scrollWheelZoom={false} style={{padding:0, overflow:"hidden"}}>
               <TileLayer
                 url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
                 attribution='&copy; CartoDB'
               />
-              <Marker position={[51.505, -0.09]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-              </Marker>
             </MapContainer>
           </div>
         </div>
