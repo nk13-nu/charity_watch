@@ -7,9 +7,9 @@ Tower Hamlets.
 import pandas as pd
 
 #first we read all csv files into dataframes
-charities_df = pd.read_csv('../data/clean_data/micro_small_med_charities_TH.csv')
-postcodes_df = pd.read_csv('../data/clean_data/post_codes_th.csv')
-deprivation_df = pd.read_csv('../data/clean_data/deprivation_th.csv')
+charities_df = pd.read_csv('data/clean_data/micro_small_med_charities_TH.csv')
+postcodes_df = pd.read_csv('data/clean_data/post_codes_th.csv')
+deprivation_df = pd.read_csv('data/clean_data/deprivation_th.csv')
 
 #Standardizing the postcode column in both the charities and the postcodes datasets
 charities_df['pc_join'] = charities_df['Charity Postcode'].str.replace(' ', '').str.upper()
@@ -115,4 +115,4 @@ final_df = final_df.rename(columns={
 #Finally we export the final dataframe as a csv file into the data directory
 final_df.to_csv('data/charities_with_deprivation.csv', index=False)
 #and we also need to export to json for react
-final_df.to_json('data/charities_with_deprivation.json', index=False)
+final_df.to_json('data/charities_with_deprivation.json', orient='records')
