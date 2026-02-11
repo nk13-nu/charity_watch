@@ -29,7 +29,6 @@ drop_cols = [
     'Unnamed: 0_x',
     'Unnamed: 0_y',
     'Phone', 'Email', 'Website',
-    'Charity Constituency',
     'Charity Type',
     'TH Postcode',
     'Size Band',
@@ -110,6 +109,7 @@ final_df = final_df.rename(columns={
     'Older population aged 60 and over: mid 2022': 'olderPopulation',
     'Charity Objects':'aim',
     'Education, Skills and Training Score': 'educationSkillsTrainingScore',
+    'Charity Constituency':'constituency'
 })
 
 #Finally we export the final dataframe as a csv file into the data directory
