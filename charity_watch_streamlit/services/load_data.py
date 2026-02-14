@@ -47,7 +47,7 @@ def load_imd(file_path : str) -> dict[str, Any]:
         with open(file_path) as f:
             return json.load(f)
 
-def load_lsoa_gdf(geojson_path: str) -> gpd.GeoDataFrame:
+def load_lsoa_gdf(geojson_path: str, imd_path:str, charities_path:str) -> gpd.GeoDataFrame:
     geojson_path = Path(geojson_path)
     if not geojson_path.exists():
         raise FileNotFoundError(f"GeoJSON file not found: {geojson_path}")
@@ -55,14 +55,14 @@ def load_lsoa_gdf(geojson_path: str) -> gpd.GeoDataFrame:
     
     #To make this a complete dataset we need to merge the imd dataset with the gpd
     #so we call the method defined above
-    imd = load_imd()
+    imd = load_imd(imd_path)
     #we create a dataframe of deprivation data
     imd_df = (pd.DataFrame.from_dict(imd, orient="index").rename_axis("LSOA21CD").reset_index())
     #and we merge the imd_df with the geopandas dataframe on the column 'LSOA21CD' which is the LSOA for TH
     gdf = gdf.merge(imd_df, on="LSOA21CD", how="left")
     
     #now we load all charities using the function defined above
-    charities = load_charities()
+    charities = load_charities(charities_path)
     #we calculate charity statistics with a groupby, grouping by lsoa, counting charities by lsoa and calculating total income
     charity_stats = (charities.groupby("lsoaCode").agg(charity_count=("id", "count"),total_income=("income", "sum"),).reset_index().rename(columns={"lsoaCode": "LSOA21CD"}))
     #and just as with imd we merge with the geopandas dataframe on lsoacode 

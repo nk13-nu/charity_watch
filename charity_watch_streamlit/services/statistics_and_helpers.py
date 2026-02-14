@@ -1,9 +1,17 @@
 #FUNCTIONS TO CALCULATE STATISTICS AND HELPERS
 import pandas as pd #pandas for data manipulation
-from typing import Any #any from typing for data typing
+import geopandas as gpd #geopandas for geojson and geo pandas dataframe manipulation
+from typing import Any, Dict, List #any from typing for data typing
 
 def deprivation_colour(deprivation_score : float | int) -> str:
-    """A function that returns a stoplight palette of colours for deprivation data"""
+    """
+    A function that returns a stoplight palette of colours for deprivation data
+
+    Args:
+        - deprivation_score (int or float): the deprivation score
+    Returns:
+        - string: the hex value of the corresponding colour to the deprivation score
+    """
     #if the deprivation score is none we return none
     if deprivation_score is None:
         return None
@@ -26,32 +34,33 @@ def deprivation_colour(deprivation_score : float | int) -> str:
     return "#22c55e"
 
 
-def identify_comissioning_gaps(df: pd.DataFrame, lsoa_geo:dict[str, Any], lsoa_imd : dict[str,dict[str, Any]]) -> list[dict[str, Any]]:
-    """This function identifies LSOA's with high deprivation scores but no charity coverage"""
-    #first we create a set of all LSOA's that have at least one charity
-    lsoa_covered = set(df["lsoaCode"].dropna().unique())
-    #we instantiate an empty list to store all lsoas without charities
-    commissioning_gaps = []
-
-    #for each feature in the features column of the lsoa geojson we
-    for feature in lsoa_geo["features"]:
-        #extract the lsoa code for that feautre
-        lsoa_code = feature["properties"]["LSOA21CD"]
-        #extract the imd score for the lsoa code that we just extracted
-        imd = lsoa_imd.get(lsoa_code, {})
-        #and we then get the imd decile of that specific imd
-        decile = imd.get("imdDecile")
-        #then we run some validation which if passed we append ...
-        if lsoa_code not in lsoa_covered and decile is not None and decile <= 3:
-            #we append the lsoa code, name, the imd score for that lsoa, its decile and population
-            commissioning_gaps.append({
-                "code": lsoa_code,
-                "name": imd.get("name", lsoa_code),
-                "imdScore": imd.get("imdScore", 0),
-                "imdDecile": decile,
-                "population": imd.get("population", 0),
-            })
-    #finally we return the comissioning gaps list which includes a dictionary of lsoa's with the extracted data.
-    return commissioning_gaps
+def identify_comissioning_gaps(lsoa_gdf: gpd.GeoDataFrame) -> List[Dict]:
+    """
+    Returns a dictionary of all lsoas that have been identified as having gaps between deprivation and local charities
+    
+    Args:
+        - lsoa_gdf (gpd.GeoDataFrame): the geodataframe containing all lsoas, their shapes, and imd data
+    Returns:
+        - list: a list of dictionaries with keys corresponding to relevant columns of the lsoa in comissioning gap position
+    """
+    # 
+    gap_rows = lsoa_gdf[lsoa_gdf["is_gap"]]
+    return gap_rows[["LSOA21CD", "name", "imdScore", "imdDecile", "population"]].rename(columns={"LSOA21CD": "code"}).to_dict("records")
 
 
+def income_formatting(income_value:float | int) -> str:
+    """
+    Formats income value for display so that it looks better and is more readable
+    Args:
+        - income_value(float or int): the income of the charity or the total income to format
+    Returns:
+        - str: formatted income
+    """
+    #if the income is greater than 1 million we divide by 1 million and add an M for readability
+    if income_value >= 1_000_000:
+        return f"£{income_value / 1_000_000:.1f}M"
+    #if the income is greater than or equal to 1 thousand we divide by 1000 and add the K
+    if income_value >= 1_000:
+        return f"£{income_value / 1_000:.0f}K"
+    #we return the formatted income as a string with £.
+    return f"£{income_value:,.0f}"

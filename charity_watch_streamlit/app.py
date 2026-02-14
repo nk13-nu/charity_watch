@@ -4,7 +4,6 @@ import pandas as pd #pandas for data manipulation
 import json #json to work with json files
 import folium
 from streamlit_folium import st_folium
-import plotly.express as px
 import pydeck as pdk
 from pathlib import Path
 
@@ -15,8 +14,9 @@ from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PAL
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
                                                         load_lsoa_gdf as _load_lsoa_gdf, 
                                                         load_imd as _load_imd)
-from charity_watch_streamlit.services.statistics_and_helpers import identify_comissioning_gaps
-
+from charity_watch_streamlit.services.statistics_and_helpers import identify_comissioning_gaps, deprivation_colour
+from charity_watch_streamlit.services.map import build_map
+from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
@@ -32,8 +32,8 @@ def load_charities(path: str):
     return _load_charities(path)
 
 @st.cache_data
-def _load_lsoa_gdf(path:str):
-    return _load_lsoa_gdf(path)
+def load_lsoa_gdf(lsoa_df_path:str, imd_path: str, charities_path:str):
+    return _load_lsoa_gdf(lsoa_df_path, imd_path, charities_path)
 
 @st.cache_data
 def load_imd(path: str):
@@ -41,12 +41,12 @@ def load_imd(path: str):
 
 #now we load data 
 df = load_charities("data/charities_with_deprivation.json")
-lsoa_gdf = _load_lsoa_gdf("data/lsoa_clean.geojson")
+lsoa_gdf = _load_lsoa_gdf("data/lsoa_clean.geojson", "data/lsoa_to_imd_mapping.json", "data/charities_with_deprivation.json")
 lsoa_imd = load_imd("data/lsoa_to_imd_mapping.json")
 
 @st.cache_data
 def get_gap_codes():
-    """Return set of LSOA codes that are commissioning gaps."""
+    """"""
     return set(lsoa_gdf[lsoa_gdf["is_gap"]]["LSOA21CD"])
 
 ###############################################
@@ -71,8 +71,7 @@ st.markdown(
 
 map_columns, info_columns = st.columns([5,4])
 
-with map_columns:
-    center = [51.5074, -0.1278]
-    m = folium.Map(location=center, zoom_start=12, tiles="CartoDB positron")
-    st_folium(m, width=1000, height=600)
+
+
+
 
