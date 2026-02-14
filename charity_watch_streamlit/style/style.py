@@ -4,7 +4,7 @@
 APP_COLOUR_PALETTE = {
     "bg":         "#040907",
     "surface":    "#0f261c",
-    "border":     "#1a3d2c",
+    "border":     "#4d5c55",
     "border_lit": "#2a5e43",
     "text":       "#e8f0ec",
     "muted":      "#6b8f7e",
@@ -32,6 +32,12 @@ app_style_design = f"""
     .cw-title {{
         font-family: 'Playfair Display', serif;
         text-align: center;
+    }}
+
+    /* ── Map border ── */
+    iframe {{
+        border-radius: 14px;
+        border: 3px solid {APP_COLOUR_PALETTE["border"]} !important;
     }}
 
 </style>
