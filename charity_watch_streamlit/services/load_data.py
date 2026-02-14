@@ -1,5 +1,10 @@
+#
+# A simple function to load json files
+#
+
 import pandas as pd
 from pathlib import Path
+import geopandas as gpd
 
 #Method to load JSON data as well as geoJSON data
 def load_data(file_path_json: str) -> pd.DataFrame:
@@ -10,4 +15,5 @@ def load_data(file_path_json: str) -> pd.DataFrame:
         raise FileNotFoundError("File not found at path")
     if path.suffix.lower() == ".json":
         return pd.read_json(path)
-    raise NotImplementedError("geojson not implemented yet")
+    if path.suffix.lower() == ".geojson":
+        return gpd.read_file(path)
