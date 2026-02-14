@@ -9,23 +9,20 @@ import pydeck as pdk
 from streamlit_extras.metric_cards import style_metric_cards
 from pathlib import Path
 
-#importing services
-from charity_watch_streamlit.services.load_data import load_data
-from charity_watch_streamlit.services.geogson_to_imd_lookup import enrich_geojson_with_imd
+#importing services/methods
+from charity_watch_streamlit.services.load_data import load_charities, load_geojson, load_imd
 
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
-background_image = 'charity_watch_streamlit/resources/tower_hamlets_image.jpg'
 
-#Setting main title
-st.title("Charity Watch")
 
-col1, col2, col3 = st.columns(3)
+###############################################
+################ LOADING DATA #################
+###############################################
 
-with col1:
-    st.metric("Total Charities", "299")
+df = load_charities("data/charities_with_deprivation.json")
+lsoa_geo = load_geojson("data/lsoa_clean.geojson")
+lsoa_imd = load_imd("data/lsoa_to_imd_mapping.json")
 
-with col2:
-    st.metric("IMD", "9.4")
+###############################################
+###############################################
 
-with col3:
-    st.metric("X", "42")

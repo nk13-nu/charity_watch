@@ -1,9 +1,10 @@
 import pandas as pd
 from pathlib import Path
-import geopandas as gpd
 from typing import Any
 import json
+import streamlit as st
     
+@st.cache()
 def load_charities(file_path: str) -> pd.DataFrame:
     path = Path(file_path)
     if path.suffix.lower() != ".json":
@@ -12,7 +13,8 @@ def load_charities(file_path: str) -> pd.DataFrame:
         raise FileNotFoundError("File not found at path")
     if path.suffix.lower() == ".json":
         return pd.read_json(path)
-    
+
+@st.cache()
 def load_geojson(file_path:str) -> dict[str, Any]:
     path = Path(file_path)
     if path.suffix.lower() != ".geojson":
@@ -22,7 +24,8 @@ def load_geojson(file_path:str) -> dict[str, Any]:
     if path.suffix.lower() == ".geojson":
         with open(file_path) as f:
             return json.load(f)
-        
+
+@st.cache()     
 def load_imd(file_path : str) -> dict[str, Any]:
     path = Path(file_path)
     if path.suffix.lower() != ".json":
