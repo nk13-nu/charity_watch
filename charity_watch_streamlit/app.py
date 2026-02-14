@@ -13,7 +13,7 @@ from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PAL
 
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
-                                                        load_geojson as _load_geojson, 
+                                                        load_lsoa_gdf as _load_lsoa_gdf, 
                                                         load_imd as _load_imd)
 from charity_watch_streamlit.services.statistics_and_helpers import identify_comissioning_gaps
 
@@ -32,8 +32,8 @@ def load_charities(path: str):
     return _load_charities(path)
 
 @st.cache_data
-def load_geojson(path: str):
-    return _load_geojson(path)
+def _load_lsoa_gdf(path:str):
+    return _load_lsoa_gdf(path)
 
 @st.cache_data
 def load_imd(path: str):
@@ -41,13 +41,13 @@ def load_imd(path: str):
 
 #now we load data 
 df = load_charities("data/charities_with_deprivation.json")
-lsoa_geo = load_geojson("data/lsoa_clean.geojson")
+lsoa_gdf = _load_lsoa_gdf("data/lsoa_clean.geojson")
 lsoa_imd = load_imd("data/lsoa_to_imd_mapping.json")
 
 @st.cache_data
 def get_gap_codes():
-    """Return the set of LSOA codes that are commissioning gaps withing Tower hamlets"""
-    return {g["code"] for g in identify_comissioning_gaps()}
+    """Return set of LSOA codes that are commissioning gaps."""
+    return set(lsoa_gdf[lsoa_gdf["is_gap"]]["LSOA21CD"])
 
 ###############################################
 ################ APPLYING STYLE ###############

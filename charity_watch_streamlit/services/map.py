@@ -1,51 +1,49 @@
 import folium
 import pandas as pd
+import geopandas as gpd
 from typing import Dict, Any, Callable, Set
+from charity_watch_streamlit.services.statistics_and_helpers import deprivation_colour
+from charity_watch_streamlit.style.style import APP_COLOUR_PALETTE
 
 
-def build_map(df: pd.DataFrame, lsoa_geo: Dict[str, Any],lsoa_imd: Dict[str, Any], gap_codes: Set[str], deprivation_colour: Callable, app_colour_palette: Dict[str, str],) -> folium.Map:
-    """DOCSTRING HEREEEEEE"""
+
+def build_map(lsoa_gdf: gpd.GeoDataFrame, deprivation_colour: Callable) -> folium.Map:
+    """"""
     #first we create a folium map object centred in Tower Hamlets, using darkmatter for nice style and zoom at 13
     m = folium.Map(location=[51.52, -0.04], zoom_start=13, tiles="cartodbdark_matter", scrollWheelZoom=False)
 
-    #now we group the charity dataframe by LSOA code, counting how many charities are in each lsoa and adding their income
-    charity_counts = df.groupby("lsoaCode").agg(
-        count=("id", "count"),
-        total_income=("income", "sum"),
-    )
+    #now we loop through every row of the iterrows return, skipping the index and getting:
+    for _, row in lsoa_gdf.iterrows():
+        #we first get the imdscore and store it in the score variable
+        score = row.get("imdScore")
+        #we now get the name of the lsoa
+        name = row.get("name", row["LSOA21CD"])
+        #now we store the number of charities at that (row/lsoa)
+        count = row["charity_count"]
+        #and we store the is there a gap variable
+        is_gap = row["is_gap"]
 
-    #now we turn charity counts into a dictionary where each key is an lsoa code and the values are the aggregated columns
-    charity_counts = charity_counts.to_dict("index")
-
-    #for each polygon within the lsoa geojson
-    for feature in lsoa_geo["features"]:
-        #get the lsoa code
-        code = feature["properties"]["LSOA21CD"]
-        #use the code to retrieve the imd score from the lsoa imd file
-        imd = lsoa_imd.get(code, {})
-        #use the code to get the number of charities in that lsoa from the charity_counts dictionary
-        stats = charity_counts.get(code)
-        #using the imd variable we get the imd score for that lsoa
-        score = imd.get("imdScore")
-        #and with the same imd variable we get the name for the lsoa instead of using the code
-        name = imd.get("name", code)
-        #if the count in stats is not null we get the 
-        count = stats["count"] if stats else 0
-        is_gap = code in gap_codes
-
+        #now we create using geojson each polygon or division in the map
         folium.GeoJson(
-            feature,
+            #since for each row in the dataframe we have a geometry, we need to convert that geometry into geojson format
+            row.geometry.__geo_interface__,
+            #then here we define the map colouring, c tells us the deprivation colour (from styles) and the gap is whether there is a commissioning gap
+            #the idea of this lambda function is to colour each LSOA respective to its imd and highlight those with gaps
+            #this is fundamental for the map and the app
             style_function=lambda x, c=deprivation_colour(score), gap=is_gap: {
+                #if there is a comissioning gap in the lsoa we colour it in red else in the respective deprivation colour defined in styles
                 "fillColor": "#f87171" if gap else c,
+                #the opacity is also dependent on the gap, if there is a gap we colour stronger
                 "fillOpacity": 0.55 if gap else 0.35,
-                "color": "#f87171" if gap else app_colour_palette["border"],
+                #same as fillcolor, for the borded
+                "color": "#f87171" if gap else APP_COLOUR_PALETTE["border"],
+                #lsoa's with gap get higher weight
                 "weight": 2.5 if gap else 1,
+                #if there is a gap the border is also dashed
                 "dashArray": "6 4" if gap else "0",
             },
-            tooltip=(
-                f"{'⚠️ ' if is_gap else ''}"
-                f"<b>{name}</b> · IMD: {score} · {count} charities"
-                f"{' · COMMISSIONING GAP' if is_gap else ''}"
-            ),
-        ).add_to(m)
+            #now we define the tooltip text whose texts also depends on whether there is a comissioning gap or not
+            tooltip=f"{' ATTENTION! ' if is_gap else ''}<b>{name}</b> · IMD: {score} · {count} charities{' · COMMISSIONING GAP' if is_gap else ''}",
+        ).add_to(m) #and add it to the map
 
+    return m #finally we return the map obj
