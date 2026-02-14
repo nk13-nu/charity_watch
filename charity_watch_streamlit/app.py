@@ -71,7 +71,6 @@ st.markdown(
 
 map_columns, info_columns = st.columns([5,4])
 
-
-
-
-
+with map_columns:
+    folium_map = build_map(lsoa_gdf, deprivation_colour=deprivation_colour)
+    charity_map_data = st_folium(folium_map, width=None, height=650)

@@ -25,10 +25,10 @@ def load_charities(file_path: str) -> pd.DataFrame:
 #    path = Path(file_path)
      #if the path does not contain .geojson we raise a value error
 #    if path.suffix.lower() != ".geojson":
-        raise ValueError("File must be geojson")
+#        raise ValueError("File must be geojson")
     #if the path does not exist we raise and error
 #    if not path.exists():
-        raise FileNotFoundError("File not found at path")
+#        raise FileNotFoundError("File not found at path")
     #if the path is a geojson file we read with json
 #    if path.suffix.lower() == ".geojson":
 #        with open(file_path) as f:
