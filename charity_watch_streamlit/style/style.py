@@ -14,8 +14,14 @@ APP_COLOUR_PALETTE = {
 
 app_style_design = f"""
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-
+    /* HOME PAGE STYLING */
+    .stApp{{
+        background: {APP_COLOUR_PALETTE['bg']};
+        color: {APP_COLOUR_PALETTE['text']};
+        font-family: 'DM Sans', sans-serif;
+    }}
 
 </style>
 """

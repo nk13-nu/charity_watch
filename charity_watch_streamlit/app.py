@@ -56,3 +56,7 @@ def get_gap_codes():
 
 st.markdown(app_style_design, unsafe_allow_html=True)
 
+st.title("Charity Watch")
+
+st.write("Data shape:", df.shape)
+st.dataframe(df.head(30))
