@@ -1,6 +1,7 @@
-import pyests
 from charity_watch_streamlit.services.statistics_and_helpers import deprivation_colour, identify_comissioning_gaps
 
+
+### Tests for deprivation colour
 def test_deprivation_colour_no_deprivation_returns_none():
     result = deprivation_colour(None)
     assert result == None
@@ -29,3 +30,5 @@ def test_deprivation_colour_high_deprivation_returns_red_colour():
     result = deprivation_colour(8)
     assert result == "#22c55e"
 
+
+### Tests for identify_comissioning gaps
