@@ -1,6 +1,9 @@
 #THIS FILE WILL DEFINE THE APP'S STYLING
 
-import streamlit as st
+style = """
+<style>
 
-st.markdown = """
+CSS HERE (ADD EVERYTHING ON STYLE CSS HERE, it is easier to write on css files than markdown...)
+
+<style>
 """
