@@ -14,7 +14,7 @@ from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PAL
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
                                                         load_lsoa_gdf as _load_lsoa_gdf, 
                                                         load_imd as _load_imd)
-from charity_watch_streamlit.services.statistics_and_helpers import identify_comissioning_gaps, deprivation_colour
+from charity_watch_streamlit.services.helpers import identify_comissioning_gaps, deprivation_colour, retrieve_lsoa_specific_data_from_click
 from charity_watch_streamlit.services.map import build_map
 from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 

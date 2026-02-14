@@ -1,4 +1,4 @@
-from charity_watch_streamlit.services.statistics_and_helpers import deprivation_colour, identify_comissioning_gaps
+from charity_watch_streamlit.services.helpers import deprivation_colour, identify_comissioning_gaps
 
 
 ### Tests for deprivation colour

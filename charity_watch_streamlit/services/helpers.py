@@ -2,6 +2,7 @@
 import pandas as pd #pandas for data manipulation
 import geopandas as gpd #geopandas for geojson and geo pandas dataframe manipulation
 from typing import Any, Dict, List #any from typing for data typing
+from shapely.geometry import Point #to create point vectors out of coordinates
 
 def deprivation_colour(deprivation_score : float | int) -> str:
     """
@@ -64,3 +65,32 @@ def income_formatting(income_value:float | int) -> str:
         return f"£{income_value / 1_000:.0f}K"
     #we return the formatted income as a string with £.
     return f"£{income_value:,.0f}"
+
+def retrieve_lsoa_specific_data_from_click(lsoa_gdf: gpd.GeoDataFrame, lsoa_map_click:Dict) -> str | None:
+    """
+    When the user clicks on one of the lsoa areas within the folium map, folium returns a dictionary of coordinates.
+    This function takes that dictionary of coordinates and the main geopandas dataframe and searches within the dataframe
+    to find if any of the lsoa polygons within the dataframe contains that point, if it does it returns the LSOA code for 
+    the polygon (that contains the point).
+    
+    Args:
+        - lsoa_gdf (gpd.GeoDataframe): the main geopandas dataframe
+        - lsoa_map_clicks (Dictionary): a dictionary that folium returns everytime there is a click in the map
+
+    Returns:
+        - str : a string of the lsoa code if it was found that the point was within it
+        - None: if there is no clicked data or there is no match between polygon area and point
+    """
+    #if there is no map click return None
+    if not lsoa_map_click:
+        return None
+    #when there is a click we create a shapely point using the longitude and latitude returned by Folium
+    point_clicked = Point(lsoa_map_click['lng'], lsoa_map_click['lat'])
+    #we check if the lsoa_gdf contains the point object, the point clicked.
+    match = lsoa_gdf[lsoa_gdf.contains(point_clicked)]
+    #if there is a match, that is, match is a geodf with at least one row
+    if len(match) > 0:
+        #we return the lsoa code of that polygon
+        return match.iloc[0]['LSOA21CD']
+    #else we return none
+    return None
