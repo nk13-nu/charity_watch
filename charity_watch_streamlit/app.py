@@ -6,7 +6,6 @@ import folium
 from streamlit_folium import st_folium
 import plotly.express as px
 import pydeck as pdk
-from streamlit_extras.metric_cards import style_metric_cards
 from pathlib import Path
 
 #importing custom style
