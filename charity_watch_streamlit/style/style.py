@@ -23,5 +23,15 @@ app_style_design = f"""
         font-family: 'DM Sans', sans-serif;
     }}
 
+    /* HIDE SIDEBAR (not needed for app) */
+    #MainMenu, header, footer {{ visibility: hidden; }}
+    section[data-testid="stSidebar"] {{ display: none; }}
+    .block-container {{ padding-top: 20px; padding-bottom: 20px; max-width: 1400px; }}
+
+    /* ── Title ── */
+    .cw-title {{
+        text-align: center;
+    }}
+
 </style>
 """

@@ -56,7 +56,19 @@ def get_gap_codes():
 
 st.markdown(app_style_design, unsafe_allow_html=True)
 
-st.title("Charity Watch")
+###############################################
+########## ADDING WIREFRAME COMPONENTS ########
+###############################################
+
+st.markdown(
+    '<h1 class="cw-title">Charity Watch</h1>',
+    unsafe_allow_html=True
+)
+
+st.markdown(
+    '<h2 class="cw-title">Tracking, micro, small and medium </h2>',
+    unsafe_allow_html=True
+)
 
 st.write("Data shape:", df.shape)
 st.dataframe(df.head(30))
