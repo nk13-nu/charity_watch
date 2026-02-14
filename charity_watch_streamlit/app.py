@@ -9,6 +9,9 @@ import pydeck as pdk
 from streamlit_extras.metric_cards import style_metric_cards
 from pathlib import Path
 
+#importing custom style
+from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE
+
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
                                                         load_geojson as _load_geojson, 
@@ -48,5 +51,8 @@ def get_gap_codes():
     return {g["code"] for g in identify_comissioning_gaps()}
 
 ###############################################
+################ APPLYING STYLE ###############
 ###############################################
+
+st.markdown(app_style_design, unsafe_allow_html=True)
 
