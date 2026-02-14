@@ -1,19 +1,36 @@
-#
-# A simple function to load json files
-#
-
 import pandas as pd
 from pathlib import Path
 import geopandas as gpd
-
-#Method to load JSON data as well as geoJSON data
-def load_data(file_path_json: str) -> pd.DataFrame:
-    path = Path(file_path_json)
-    if path.suffix.lower() not in {".json", ".geojson"}:
-        raise ValueError("File must be either json or geojson")
+from typing import Any
+import json
+    
+def load_charities(file_path: str) -> pd.DataFrame:
+    path = Path(file_path)
+    if path.suffix.lower() != ".json":
+        raise ValueError("File must be json")
     if not path.exists():
         raise FileNotFoundError("File not found at path")
     if path.suffix.lower() == ".json":
         return pd.read_json(path)
+    
+def load_geojson(file_path:str) -> dict[str, Any]:
+    path = Path(file_path)
+    if path.suffix.lower() != ".geojson":
+        raise ValueError("File must be geojson")
+    if not path.exists():
+        raise FileNotFoundError("File not found at path")
     if path.suffix.lower() == ".geojson":
-        return gpd.read_file(path)
+        with open(file_path) as f:
+            return json.load(f)
+        
+def load_imd(file_path : str) -> dict[str, Any]:
+    path = Path(file_path)
+    if path.suffix.lower() != ".json":
+        raise ValueError("File must be json")
+    if not path.exists():
+        raise FileNotFoundError("File not found at path")
+    if path.suffix.lower() == ".json":
+        with open(file_path) as f:
+            return json.load(f)
+ 
+    
