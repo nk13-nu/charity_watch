@@ -66,9 +66,14 @@ st.markdown(
 )
 
 st.markdown(
-    '<h2 class="cw-title">Tracking, micro, small and medium </h2>',
+    '<h5 class="cw-title">Tracking, micro, small and medium charities in Tower Hamlets</h5>',
     unsafe_allow_html=True
 )
 
-st.write("Data shape:", df.shape)
-st.dataframe(df.head(30))
+map_columns, info_columns = st.columns([5,4])
+
+with map_columns:
+    center = [51.5074, -0.1278]
+    m = folium.Map(location=center, zoom_start=12, tiles="CartoDB positron")
+    st_folium(m, width=1000, height=600)
+

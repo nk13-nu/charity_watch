@@ -30,6 +30,7 @@ app_style_design = f"""
 
     /* ── Title ── */
     .cw-title {{
+        font-family: 'Playfair Display', serif;
         text-align: center;
     }}
 
