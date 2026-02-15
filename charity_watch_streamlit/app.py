@@ -14,15 +14,22 @@ from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PAL
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
                                                         load_lsoa_gdf as _load_lsoa_gdf, 
                                                         load_imd as _load_imd)
-from charity_watch_streamlit.services.helpers import identify_comissioning_gaps, deprivation_colour, retrieve_lsoa_specific_data_from_click, income_formatting
+
+from charity_watch_streamlit.services.helpers import (identify_comissioning_gaps, 
+                                                      deprivation_colour, 
+                                                      retrieve_lsoa_specific_data_from_click, 
+                                                      income_formatting)
+
 from charity_watch_streamlit.services.map import build_map
 from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
 
-
-
+#for the charity selection this is important, it checks if there has been a charity selected for the first run of the code
+#if there is no seleciton then we set the selection state to none
+if "selected_charity" not in st.session_state:
+    st.session_state.selected_charity = None
 
 
 ###############################################
@@ -95,9 +102,9 @@ with info_columns:
         #we store lsoa name
         lsoa_name = imd_info.get("name", clicked_lsoa)
         #the lsoa's imd score
-        score = imd_info.get("imdScore", "—")
+        score = imd_info.get("imdScore", "No imd score to show")
         #storing the population of the lsoa
-        population = imd_info.get("population", "—")
+        population = imd_info.get("population", "No population count registered")
         #and the number of charities within the lsoa as a dataframe (to include multiple fields of the charity)
         charities_here = df[df["lsoaCode"] == clicked_lsoa]
 
@@ -153,7 +160,7 @@ if clicked_lsoa:
         st.text(f"Total Last Recorded Income: {income_formatting(charities_here["income"].sum())}")
     #column3 we pass the deprivation score of the lsoa
     with c3:
-        st.text(f"Deprivation Score: {imd_info.get("imdScore", "—")}")
+        st.text(f"Deprivation Score: {imd_info.get("imdScore", "No deprivation score registered")}")
     #column 4 for the population
     with c4:
         st.text(f"Population: {imd_info.get("population", 0):,}")
@@ -172,4 +179,34 @@ else:
     #and display the lsoa charity coverage across tower hamlets
     with c4:
         st.text(f"LSOA Charity Coverage {df["lsoaCode"].nunique()}/{len(df)}")
-        
+
+#if a charity button is clicked
+if st.session_state.selected_charity is not None:
+    # we now filter for the clicked (button) in the dataframe
+    charity_row = df[df["id"] == st.session_state.selected_charity]
+    #if we get a charity
+    if len(charity_row) > 0:
+        #we now create a pandas series using iloc for that specific charitys
+        charity = charity_row.iloc[0]
+        #using the st.dialog decorator creates a popup window for the charity
+        @st.dialog(f"{charity['name']}", width="large")
+        #the following function renders the popup window
+        def show_charity_popup_window():
+            #firs there will be a single row with three columns for key charity stats and facts
+            column1, column2, column3 = st.columns(3)
+            with column1:
+                st.text(f"Last Recorded Income: {income_formatting(charity['income'])} ")
+            with column2:
+                st.text(f"Last Recorded Expenditure: {income_formatting(charity['expenditure'])}")
+            with column3:
+                st.text(f"Size: {charity['sizeBand']}")
+            
+            #Then we add text for the charity number, aim and Location
+            st.text(f"Charity Number: {charity['id']}")
+            st.text(f"Aim: {charity.get("aim", "No aim registered")}")
+            st.text(f'Location: {charity.get("address", "No Address Registered")}, {charity.get("postcode", "")}')
+
+        #we call the method to create the popup window for the charity
+        show_charity_popup_window()
+        #then we reset the state back to None so that the app does not keep the popup open
+        st.session_state.selected_charity = None
