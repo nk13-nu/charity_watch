@@ -22,6 +22,9 @@ from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
 
 
+
+
+
 ###############################################
 ################ LOADING DATA #################
 ###############################################
@@ -80,6 +83,7 @@ with map_columns:
 #we constantly check the map for clicks and when we get one the method defined in the helper module gets called, giving us data for that lsoa
 clicked_lsoa = retrieve_lsoa_specific_data_from_click(lsoa_gdf, charity_map_data.get("last_clicked") if charity_map_data else None)
 
+#The Info columns are triggered only when there has been an lsoa click
 #using the 4 info columns
 with info_columns:
     #if clicked lsoa contains data (that is only after the user clicked on an lsoa on the map)
@@ -102,6 +106,30 @@ with info_columns:
         st.text(score)
         st.text(population)
 
+        #if there are charities to in the lsoa, then
+        if len(charities_here) > 0:
+            #for every charity, we ignore the index and take c as the iterator to create a button for each
+            for _, c in charities_here.iterrows():
+                #we retrieve the id
+                charity_id = c["id"]
+                # and we create a button for the charity that will include the name, and a key to identify it based on the charity id
+                if st.button(f"{c['name']}", key=f"charity_{charity_id}", use_container_width=True):
+                    st.session_state.selected_charity = charity_id
+
+            # now we also instantiate the bubble chart
+            fig_bubble = build_bubble_chart(df, charities_here)
+            #and add it to the app through st
+            st.plotly_chart(fig_bubble, use_container_width=True, key="bubble_selected")
+        #If there are no charities in the lsoa we check for a commissionnig gap
+        else:
+            #if the clicked lsoa code is in the get_gap_codes dictionary (large imd score and no charities)
+            is_gap = clicked_lsoa in get_gap_codes()
+            #we say that there is a comissioning gap
+            if is_gap:
+                st.text('Commissioning Gap!!!')
+            else:
+                #if there is not commissioning gap we just say that there are no charities registered at that lsoa
+                st.text('No Charities Registered')
 
 #if an lsoa is clicked on the map
 if clicked_lsoa:
@@ -144,3 +172,4 @@ else:
     #and display the lsoa charity coverage across tower hamlets
     with c4:
         st.text(f"LSOA Charity Coverage {df["lsoaCode"].nunique()}/{len(df)}")
+        
