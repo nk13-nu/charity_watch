@@ -206,6 +206,21 @@ if st.session_state.selected_charity is not None:
             st.text(f"Aim: {charity.get("aim", "No aim registered")}")
             st.text(f'Location: {charity.get("address", "No Address Registered")}, {charity.get("postcode", "")}')
 
+            #implementing google streetview.
+            #if the charity contains both a latitude and a longitude then
+            if pd.notna(charity.get("lat")) and pd.notna(charity.get("lng")):
+                #we render a markdown window with streetview
+                st.markdown(f"""
+                <div class="cw-streetview" style="margin-top:16px;  display:flex; justify-content:left;">
+                    <iframe
+                        width="100%" height="350" frameborder="0" loading="lazy"
+                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location={charity["lat"]},{charity["lng"]}&heading=210&pitch=10&fov=75">
+                    </iframe>
+                </div>
+                """, unsafe_allow_html=True)
+
+            st.markdown("<br>", unsafe_allow_html=True)
+
         #we call the method to create the popup window for the charity
         show_charity_popup_window()
         #then we reset the state back to None so that the app does not keep the popup open
