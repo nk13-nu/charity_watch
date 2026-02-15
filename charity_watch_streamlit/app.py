@@ -69,8 +69,35 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+#dividing the app into 9 columns, five for the map and the rest for the data cards that appear after an lsoa is clicked
 map_columns, info_columns = st.columns([5,4])
 
+#using the map columns we build the map using the build map method
 with map_columns:
     folium_map = build_map(lsoa_gdf, deprivation_colour=deprivation_colour)
     charity_map_data = st_folium(folium_map, width=None, height=650)
+
+#we constantly check the map for clicks and when we get one the method defined in the helper module gets called, giving us data for that lsoa
+clicked_lsoa = retrieve_lsoa_specific_data_from_click(lsoa_gdf, charity_map_data.get("last_clicked") if charity_map_data else None)
+
+#using the 4 info columns
+with info_columns:
+    #if clicked lsoa contains data (that is only after the user clicked on an lsoa on the map)
+    if clicked_lsoa:
+        #retrieve all data for the clicked lsoa
+        imd_info = lsoa_imd.get(clicked_lsoa, {})
+
+        #now we store values individually for display
+        #we store lsoa name
+        lsoa_name = imd_info.get("name", clicked_lsoa)
+        #the lsoa's imd score
+        score = imd_info.get("imdScore", "—")
+        #storing the population of the lsoa
+        population = imd_info.get("population", "—")
+        #and the number of charities within the lsoa as a dataframe (to include multiple fields of the charity)
+        charities_here = df[df["lsoaCode"] == clicked_lsoa]
+
+        #displaying some data for testing
+        st.text(lsoa_name)
+        st.text(score)
+        st.text(population)
