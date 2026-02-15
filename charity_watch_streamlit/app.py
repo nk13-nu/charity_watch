@@ -213,7 +213,7 @@ if st.session_state.selected_charity is not None:
                 st.markdown(f"""
                 <div class="cw-streetview" style="margin-top:16px;  display:flex; justify-content:left;">
                     <iframe
-                        width="100%" height="350" frameborder="0" loading="lazy"
+                        width="45%" height="350" frameborder="0" loading="lazy"
                         src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location={charity["lat"]},{charity["lng"]}&heading=210&pitch=10&fov=75">
                     </iframe>
                 </div>
