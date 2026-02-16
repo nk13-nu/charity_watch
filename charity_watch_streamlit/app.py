@@ -6,9 +6,10 @@ import folium
 from streamlit_folium import st_folium
 import pydeck as pdk
 from pathlib import Path
+from streamlit_extras.stylable_container import stylable_container #using streamlit extras to style cards with ease (https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469)
 
 #importing custom style
-from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE
+from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style
 
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
@@ -109,7 +110,8 @@ with info_columns:
         charities_here = df[df["lsoaCode"] == clicked_lsoa]
 
         #displaying some data for testing
-        st.text(lsoa_name)
+        with stylable_container('Card 1', css_styles=statistic_cards_style):
+            st.text(lsoa_name)
         st.text(score)
         st.text(population)
 
