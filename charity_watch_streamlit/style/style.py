@@ -45,12 +45,15 @@ app_style_design = f"""
 
 #https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469
 statistic_cards_style = """ 
-    {
-        border: 1px groove #52546a;
-        border-radius: 10px;
-        padding-left: 25px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        box-shadow: -6px 8px 20px 1px #00000052;
-    }
+{
+    background-color: #0f261c;
+    border-radius: 10px;
+    box-shadow: -6px 5px 8px 1px #2a5e43;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
 """

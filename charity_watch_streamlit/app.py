@@ -110,8 +110,17 @@ with info_columns:
         charities_here = df[df["lsoaCode"] == clicked_lsoa]
 
         #displaying some data for testing
-        with stylable_container('Card 1', css_styles=statistic_cards_style):
-            st.text(lsoa_name)
+        #https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469
+        with stylable_container('LSOA Name Card', css_styles=statistic_cards_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 32px;
+                                font-weight: 700;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {lsoa_name}
+                            </div>""",
+                            unsafe_allow_html=True)
         st.text(score)
         st.text(population)
 
