@@ -9,7 +9,7 @@ from pathlib import Path
 from streamlit_extras.stylable_container import stylable_container #using streamlit extras to style cards with ease (https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469)
 
 #importing custom style
-from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style, statistic_cards_small_style
+from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style, statistic_cards_small_style, bottom_cards_style, click_an_lsoa_on_map_style
 
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
@@ -183,16 +183,52 @@ if clicked_lsoa:
     c1, c2, c3, c4 = st.columns(4)
     #on column 1 we place number of charities in lsoa
     with c1:
-        st.text(f"Number of Charities: {len(charities_here)}")
+        with stylable_container('Number of Charities', css_styles=bottom_cards_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"Number of Charities: {len(charities_here)}"}
+                            </div>""",
+                            unsafe_allow_html=True)
     #column 2 takes the total income of the lsoa's charities
     with c2:
-        st.text(f"Total Last Recorded Income: {income_formatting(charities_here["income"].sum())}")
+        with stylable_container('Total Last Recorded Income', css_styles=bottom_cards_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"Total Last Recorded Income: {income_formatting(charities_here["income"].sum())}"}
+                            </div>""",
+                            unsafe_allow_html=True)
     #column3 we pass the deprivation score of the lsoa
     with c3:
-        st.text(f"Deprivation Score: {imd_info.get("imdScore", "No deprivation score registered")}")
+        with stylable_container('Deprivation Score', css_styles=bottom_cards_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"Deprivation Score: {imd_info.get("imdScore", "No deprivation score registered")}"}
+                            </div>""",
+                            unsafe_allow_html=True)
     #column 4 for the population
     with c4:
-        st.text(f"Population: {imd_info.get("population", 0):,}")
+        with stylable_container('Population LSOA', css_styles=bottom_cards_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 22px;
+                                font-weight: 500;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"Population: {imd_info.get("population", 0):,}"}
+                            </div>""",
+                            unsafe_allow_html=True)
 else:
     #if there is no selected lsoa on the map we go back to defaults
     c1, c2, c3, c4 = st.columns(4)
@@ -208,6 +244,18 @@ else:
     #and display the lsoa charity coverage across tower hamlets
     with c4:
         st.text(f"LSOA Charity Coverage {df["lsoaCode"].nunique()}/{len(df)}")
+    with info_columns:
+         with stylable_container('Click an LSOA Card', css_styles=click_an_lsoa_on_map_style):
+              st.markdown(f"""<div 
+                                style="
+                                font-size: 22px;
+                                text-align: center;
+                                font-weight: 500;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {"Click an LSOA on the Map to see all charity information."}
+                            </div>""",
+                            unsafe_allow_html=True)
 
 #if a charity button is clicked
 if st.session_state.selected_charity is not None:

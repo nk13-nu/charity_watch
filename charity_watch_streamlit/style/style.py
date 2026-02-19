@@ -84,3 +84,17 @@ bottom_cards_style = """
     padding: 0 25px;
 }
 """
+
+click_an_lsoa_on_map_style = """ 
+{
+    background-color: #2a5e43;
+    border-radius: 10px;
+    box-shadow: -6px 5px 8px 1px #0f261c;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+"""
