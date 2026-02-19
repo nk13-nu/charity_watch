@@ -70,3 +70,17 @@ statistic_cards_small_style = """
     padding: 0 25px;
 }
 """
+
+bottom_cards_style = """ 
+{
+    background-color: #091711;
+    border-radius: 10px;
+    box-shadow: -6px 5px 8px 1px #0f261c;
+    width: 300px;
+    box-sizing: border-box;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+"""
