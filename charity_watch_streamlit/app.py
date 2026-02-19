@@ -9,7 +9,7 @@ from pathlib import Path
 from streamlit_extras.stylable_container import stylable_container #using streamlit extras to style cards with ease (https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469)
 
 #importing custom style
-from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style
+from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style, statistic_cards_small_style
 
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
@@ -121,8 +121,26 @@ with info_columns:
                                 {lsoa_name}
                             </div>""",
                             unsafe_allow_html=True)
-        st.text(score)
-        st.text(population)
+        with stylable_container('IMD Score', css_styles=statistic_cards_small_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 25px;
+                                font-weight: 700;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"IMD Score: {score}"}
+                            </div>""",
+                            unsafe_allow_html=True)
+        with stylable_container('Population', css_styles=statistic_cards_small_style):
+                st.markdown(f"""<div 
+                                style="
+                                font-size: 25px;
+                                font-weight: 700;
+                                color: #E8F5E9;
+                                letter-spacing: -0.5px;">
+                                {f"LSOA Population: {population}"}
+                            </div>""",
+                            unsafe_allow_html=True)
 
         #if there are charities to in the lsoa, then
         if len(charities_here) > 0:

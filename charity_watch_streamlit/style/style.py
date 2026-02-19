@@ -51,7 +51,20 @@ statistic_cards_style = """
     box-shadow: -6px 5px 8px 1px #2a5e43;
     width: 100%;
     box-sizing: border-box;
-    min-height: 80px;
+    min-height: 55px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+"""
+statistic_cards_small_style = """ 
+{
+    background-color: #091711;
+    border-radius: 10px;
+    box-shadow: -6px 5px 8px 1px #0f261c;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 40px;
     display: flex;
     align-items: center;
     padding: 0 25px;
