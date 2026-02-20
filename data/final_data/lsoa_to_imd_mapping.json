@@ -1,0 +1,1016 @@
+{
+  "E01004198": {
+    "name": "Tower Hamlets 002B",
+    "imdScore": 45.95,
+    "imdDecile": 1,
+    "population": 1521
+  },
+  "E01004199": {
+    "name": "Tower Hamlets 002C",
+    "imdScore": 44.16,
+    "imdDecile": 2,
+    "population": 1775
+  },
+  "E01004200": {
+    "name": "Tower Hamlets 005A",
+    "imdScore": 22.52,
+    "imdDecile": 4,
+    "population": 1524
+  },
+  "E01004201": {
+    "name": "Tower Hamlets 002D",
+    "imdScore": 25.58,
+    "imdDecile": 4,
+    "population": 1673
+  },
+  "E01004202": {
+    "name": "Tower Hamlets 005B",
+    "imdScore": 24.89,
+    "imdDecile": 4,
+    "population": 2115
+  },
+  "E01004203": {
+    "name": "Tower Hamlets 005C",
+    "imdScore": 30.95,
+    "imdDecile": 3,
+    "population": 1791
+  },
+  "E01004204": {
+    "name": "Tower Hamlets 005D",
+    "imdScore": 37.47,
+    "imdDecile": 2,
+    "population": 1876
+  },
+  "E01004205": {
+    "name": "Tower Hamlets 013A",
+    "imdScore": 47.6,
+    "imdDecile": 1,
+    "population": 2279
+  },
+  "E01004206": {
+    "name": "Tower Hamlets 013B",
+    "imdScore": 52.06,
+    "imdDecile": 1,
+    "population": 1461
+  },
+  "E01004207": {
+    "name": "Tower Hamlets 011A",
+    "imdScore": 43.48,
+    "imdDecile": 2,
+    "population": 1480
+  },
+  "E01004208": {
+    "name": "Tower Hamlets 013C",
+    "imdScore": 30.76,
+    "imdDecile": 3,
+    "population": 2093
+  },
+  "E01004209": {
+    "name": "Tower Hamlets 011B",
+    "imdScore": 48.71,
+    "imdDecile": 1,
+    "population": 1396
+  },
+  "E01004211": {
+    "name": "Tower Hamlets 013D",
+    "imdScore": 34.69,
+    "imdDecile": 2,
+    "population": 1617
+  },
+  "E01004212": {
+    "name": "Tower Hamlets 011D",
+    "imdScore": 30.51,
+    "imdDecile": 3,
+    "population": 2387
+  },
+  "E01004214": {
+    "name": "Tower Hamlets 030A",
+    "imdScore": 52.68,
+    "imdDecile": 1,
+    "population": 1655
+  },
+  "E01004216": {
+    "name": "Tower Hamlets 030B",
+    "imdScore": 21.11,
+    "imdDecile": 5,
+    "population": 1857
+  },
+  "E01004217": {
+    "name": "Tower Hamlets 030C",
+    "imdScore": 26.39,
+    "imdDecile": 4,
+    "population": 2219
+  },
+  "E01004218": {
+    "name": "Tower Hamlets 030D",
+    "imdScore": 16.02,
+    "imdDecile": 6,
+    "population": 1958
+  },
+  "E01004219": {
+    "name": "Tower Hamlets 035B",
+    "imdScore": 29.95,
+    "imdDecile": 3,
+    "population": 2846
+  },
+  "E01004221": {
+    "name": "Tower Hamlets 036A",
+    "imdScore": 29.45,
+    "imdDecile": 3,
+    "population": 1943
+  },
+  "E01004222": {
+    "name": "Tower Hamlets 001A",
+    "imdScore": 37.47,
+    "imdDecile": 2,
+    "population": 2789
+  },
+  "E01004223": {
+    "name": "Tower Hamlets 001B",
+    "imdScore": 35.27,
+    "imdDecile": 2,
+    "population": 2118
+  },
+  "E01004226": {
+    "name": "Tower Hamlets 001D",
+    "imdScore": 31.75,
+    "imdDecile": 3,
+    "population": 2456
+  },
+  "E01004228": {
+    "name": "Tower Hamlets 003A",
+    "imdScore": 19.84,
+    "imdDecile": 5,
+    "population": 2059
+  },
+  "E01004229": {
+    "name": "Tower Hamlets 004C",
+    "imdScore": 26.78,
+    "imdDecile": 3,
+    "population": 1474
+  },
+  "E01004230": {
+    "name": "Tower Hamlets 003B",
+    "imdScore": 27.27,
+    "imdDecile": 3,
+    "population": 2296
+  },
+  "E01004231": {
+    "name": "Tower Hamlets 004D",
+    "imdScore": 38.28,
+    "imdDecile": 2,
+    "population": 1611
+  },
+  "E01004232": {
+    "name": "Tower Hamlets 003C",
+    "imdScore": 20.74,
+    "imdDecile": 5,
+    "population": 1849
+  },
+  "E01004233": {
+    "name": "Tower Hamlets 003D",
+    "imdScore": 29.1,
+    "imdDecile": 3,
+    "population": 2258
+  },
+  "E01004234": {
+    "name": "Tower Hamlets 003E",
+    "imdScore": 17.91,
+    "imdDecile": 5,
+    "population": 2574
+  },
+  "E01004235": {
+    "name": "Tower Hamlets 008A",
+    "imdScore": 50.47,
+    "imdDecile": 1,
+    "population": 1394
+  },
+  "E01004236": {
+    "name": "Tower Hamlets 008B",
+    "imdScore": 50.95,
+    "imdDecile": 1,
+    "population": 1555
+  },
+  "E01004237": {
+    "name": "Tower Hamlets 008C",
+    "imdScore": 38.26,
+    "imdDecile": 2,
+    "population": 1602
+  },
+  "E01004239": {
+    "name": "Tower Hamlets 008E",
+    "imdScore": 38.42,
+    "imdDecile": 2,
+    "population": 1783
+  },
+  "E01004240": {
+    "name": "Tower Hamlets 012A",
+    "imdScore": 39.83,
+    "imdDecile": 2,
+    "population": 1756
+  },
+  "E01004241": {
+    "name": "Tower Hamlets 012B",
+    "imdScore": 48.79,
+    "imdDecile": 1,
+    "population": 1750
+  },
+  "E01004243": {
+    "name": "Tower Hamlets 020A",
+    "imdScore": 35.88,
+    "imdDecile": 2,
+    "population": 1694
+  },
+  "E01004244": {
+    "name": "Tower Hamlets 020B",
+    "imdScore": 44.42,
+    "imdDecile": 2,
+    "population": 2056
+  },
+  "E01004245": {
+    "name": "Tower Hamlets 018A",
+    "imdScore": 28.41,
+    "imdDecile": 3,
+    "population": 3018
+  },
+  "E01004247": {
+    "name": "Tower Hamlets 020C",
+    "imdScore": 43.75,
+    "imdDecile": 2,
+    "population": 2695
+  },
+  "E01004248": {
+    "name": "Tower Hamlets 018C",
+    "imdScore": 50.91,
+    "imdDecile": 1,
+    "population": 1876
+  },
+  "E01004249": {
+    "name": "Tower Hamlets 018D",
+    "imdScore": 45.54,
+    "imdDecile": 1,
+    "population": 2421
+  },
+  "E01004251": {
+    "name": "Tower Hamlets 023A",
+    "imdScore": 35.44,
+    "imdDecile": 2,
+    "population": 2660
+  },
+  "E01004255": {
+    "name": "Tower Hamlets 023C",
+    "imdScore": 40.67,
+    "imdDecile": 2,
+    "population": 1667
+  },
+  "E01004256": {
+    "name": "Tower Hamlets 024C",
+    "imdScore": 46.87,
+    "imdDecile": 1,
+    "population": 1764
+  },
+  "E01004257": {
+    "name": "Tower Hamlets 024D",
+    "imdScore": 47.34,
+    "imdDecile": 1,
+    "population": 2290
+  },
+  "E01004258": {
+    "name": "Tower Hamlets 023D",
+    "imdScore": 17.57,
+    "imdDecile": 5,
+    "population": 1490
+  },
+  "E01004259": {
+    "name": "Tower Hamlets 007A",
+    "imdScore": 28.55,
+    "imdDecile": 3,
+    "population": 1737
+  },
+  "E01004260": {
+    "name": "Tower Hamlets 007B",
+    "imdScore": 40.69,
+    "imdDecile": 2,
+    "population": 1792
+  },
+  "E01004263": {
+    "name": "Tower Hamlets 007C",
+    "imdScore": 42.43,
+    "imdDecile": 2,
+    "population": 1404
+  },
+  "E01004264": {
+    "name": "Tower Hamlets 010C",
+    "imdScore": 47.3,
+    "imdDecile": 1,
+    "population": 1543
+  },
+  "E01004266": {
+    "name": "Tower Hamlets 007D",
+    "imdScore": 29.54,
+    "imdDecile": 3,
+    "population": 1419
+  },
+  "E01004267": {
+    "name": "Tower Hamlets 012D",
+    "imdScore": 33.14,
+    "imdDecile": 3,
+    "population": 2267
+  },
+  "E01004268": {
+    "name": "Tower Hamlets 012E",
+    "imdScore": 37.75,
+    "imdDecile": 2,
+    "population": 1781
+  },
+  "E01004270": {
+    "name": "Tower Hamlets 014B",
+    "imdScore": 24.95,
+    "imdDecile": 4,
+    "population": 2472
+  },
+  "E01004271": {
+    "name": "Tower Hamlets 014C",
+    "imdScore": 29.78,
+    "imdDecile": 3,
+    "population": 2461
+  },
+  "E01004272": {
+    "name": "Tower Hamlets 014D",
+    "imdScore": 41.98,
+    "imdDecile": 2,
+    "population": 2676
+  },
+  "E01004274": {
+    "name": "Tower Hamlets 031A",
+    "imdScore": 31.21,
+    "imdDecile": 3,
+    "population": 1948
+  },
+  "E01004275": {
+    "name": "Tower Hamlets 031B",
+    "imdScore": 23.28,
+    "imdDecile": 4,
+    "population": 2636
+  },
+  "E01004276": {
+    "name": "Tower Hamlets 031C",
+    "imdScore": 6.24,
+    "imdDecile": 9,
+    "population": 2030
+  },
+  "E01004277": {
+    "name": "Tower Hamlets 033A",
+    "imdScore": 8.39,
+    "imdDecile": 8,
+    "population": 1737
+  },
+  "E01004280": {
+    "name": "Tower Hamlets 032A",
+    "imdScore": 27.71,
+    "imdDecile": 3,
+    "population": 2017
+  },
+  "E01004281": {
+    "name": "Tower Hamlets 031D",
+    "imdScore": 11.42,
+    "imdDecile": 7,
+    "population": 2007
+  },
+  "E01004283": {
+    "name": "Tower Hamlets 016A",
+    "imdScore": 41.03,
+    "imdDecile": 2,
+    "population": 2336
+  },
+  "E01004286": {
+    "name": "Tower Hamlets 019C",
+    "imdScore": 38.91,
+    "imdDecile": 2,
+    "population": 2565
+  },
+  "E01004287": {
+    "name": "Tower Hamlets 016B",
+    "imdScore": 42.95,
+    "imdDecile": 2,
+    "population": 2338
+  },
+  "E01004288": {
+    "name": "Tower Hamlets 019D",
+    "imdScore": 44.12,
+    "imdDecile": 2,
+    "population": 1796
+  },
+  "E01004289": {
+    "name": "Tower Hamlets 016C",
+    "imdScore": 38.6,
+    "imdDecile": 2,
+    "population": 1972
+  },
+  "E01004290": {
+    "name": "Tower Hamlets 016D",
+    "imdScore": 31.3,
+    "imdDecile": 3,
+    "population": 2061
+  },
+  "E01004291": {
+    "name": "Tower Hamlets 027A",
+    "imdScore": 11.48,
+    "imdDecile": 7,
+    "population": 1906
+  },
+  "E01004292": {
+    "name": "Tower Hamlets 026A",
+    "imdScore": 5.46,
+    "imdDecile": 10,
+    "population": 1677
+  },
+  "E01004293": {
+    "name": "Tower Hamlets 027B",
+    "imdScore": 7.92,
+    "imdDecile": 9,
+    "population": 2017
+  },
+  "E01004295": {
+    "name": "Tower Hamlets 026C",
+    "imdScore": 39.11,
+    "imdDecile": 2,
+    "population": 2052
+  },
+  "E01004296": {
+    "name": "Tower Hamlets 026D",
+    "imdScore": 26.42,
+    "imdDecile": 4,
+    "population": 2458
+  },
+  "E01004297": {
+    "name": "Tower Hamlets 027C",
+    "imdScore": 8.17,
+    "imdDecile": 9,
+    "population": 1870
+  },
+  "E01004298": {
+    "name": "Tower Hamlets 022A",
+    "imdScore": 50.19,
+    "imdDecile": 1,
+    "population": 1656
+  },
+  "E01004300": {
+    "name": "Tower Hamlets 022B",
+    "imdScore": 48.28,
+    "imdDecile": 1,
+    "population": 1432
+  },
+  "E01004301": {
+    "name": "Tower Hamlets 025B",
+    "imdScore": 45.92,
+    "imdDecile": 1,
+    "population": 1370
+  },
+  "E01004302": {
+    "name": "Tower Hamlets 025C",
+    "imdScore": 45.53,
+    "imdDecile": 1,
+    "population": 1712
+  },
+  "E01004303": {
+    "name": "Tower Hamlets 025D",
+    "imdScore": 32.13,
+    "imdDecile": 3,
+    "population": 2911
+  },
+  "E01004304": {
+    "name": "Tower Hamlets 022C",
+    "imdScore": 44.95,
+    "imdDecile": 1,
+    "population": 2224
+  },
+  "E01004305": {
+    "name": "Tower Hamlets 022D",
+    "imdScore": 43.9,
+    "imdDecile": 2,
+    "population": 1962
+  },
+  "E01004306": {
+    "name": "Tower Hamlets 015A",
+    "imdScore": 36.12,
+    "imdDecile": 2,
+    "population": 1926
+  },
+  "E01004307": {
+    "name": "Tower Hamlets 015B",
+    "imdScore": 16.32,
+    "imdDecile": 6,
+    "population": 2600
+  },
+  "E01004308": {
+    "name": "Tower Hamlets 015C",
+    "imdScore": 35.16,
+    "imdDecile": 2,
+    "population": 1462
+  },
+  "E01004309": {
+    "name": "Tower Hamlets 015D",
+    "imdScore": 47.72,
+    "imdDecile": 1,
+    "population": 2882
+  },
+  "E01004310": {
+    "name": "Tower Hamlets 015E",
+    "imdScore": 33.15,
+    "imdDecile": 3,
+    "population": 2119
+  },
+  "E01004311": {
+    "name": "Tower Hamlets 006A",
+    "imdScore": 32.82,
+    "imdDecile": 3,
+    "population": 1857
+  },
+  "E01004312": {
+    "name": "Tower Hamlets 009A",
+    "imdScore": 41.62,
+    "imdDecile": 2,
+    "population": 1567
+  },
+  "E01004313": {
+    "name": "Tower Hamlets 009B",
+    "imdScore": 37.22,
+    "imdDecile": 2,
+    "population": 2156
+  },
+  "E01004315": {
+    "name": "Tower Hamlets 006C",
+    "imdScore": 31.0,
+    "imdDecile": 3,
+    "population": 1620
+  },
+  "E01004316": {
+    "name": "Tower Hamlets 009C",
+    "imdScore": 41.51,
+    "imdDecile": 2,
+    "population": 1058
+  },
+  "E01004319": {
+    "name": "Tower Hamlets 021A",
+    "imdScore": 35.86,
+    "imdDecile": 2,
+    "population": 2540
+  },
+  "E01004321": {
+    "name": "Tower Hamlets 021C",
+    "imdScore": 37.22,
+    "imdDecile": 2,
+    "population": 2291
+  },
+  "E01004322": {
+    "name": "Tower Hamlets 017A",
+    "imdScore": 45.2,
+    "imdDecile": 1,
+    "population": 1532
+  },
+  "E01004323": {
+    "name": "Tower Hamlets 017B",
+    "imdScore": 35.93,
+    "imdDecile": 2,
+    "population": 1735
+  },
+  "E01004324": {
+    "name": "Tower Hamlets 017C",
+    "imdScore": 42.92,
+    "imdDecile": 2,
+    "population": 1661
+  },
+  "E01004326": {
+    "name": "Tower Hamlets 017D",
+    "imdScore": 36.53,
+    "imdDecile": 2,
+    "population": 1938
+  },
+  "E01032764": {
+    "name": "Tower Hamlets 004E",
+    "imdScore": 26.64,
+    "imdDecile": 3,
+    "population": 2611
+  },
+  "E01032765": {
+    "name": "Tower Hamlets 004F",
+    "imdScore": 28.14,
+    "imdDecile": 3,
+    "population": 1889
+  },
+  "E01032767": {
+    "name": "Tower Hamlets 021F",
+    "imdScore": 10.28,
+    "imdDecile": 8,
+    "population": 1746
+  },
+  "E01032768": {
+    "name": "Tower Hamlets 025E",
+    "imdScore": 10.16,
+    "imdDecile": 8,
+    "population": 1325
+  },
+  "E01032769": {
+    "name": "Tower Hamlets 025F",
+    "imdScore": 23.07,
+    "imdDecile": 4,
+    "population": 1368
+  },
+  "E01032770": {
+    "name": "Tower Hamlets 032B",
+    "imdScore": 12.16,
+    "imdDecile": 7,
+    "population": 2186
+  },
+  "E01032771": {
+    "name": "Tower Hamlets 033B",
+    "imdScore": 11.29,
+    "imdDecile": 7,
+    "population": 2130
+  },
+  "E01032772": {
+    "name": "Tower Hamlets 032C",
+    "imdScore": 20.3,
+    "imdDecile": 5,
+    "population": 2866
+  },
+  "E01032774": {
+    "name": "Tower Hamlets 032E",
+    "imdScore": 24.6,
+    "imdDecile": 4,
+    "population": 1835
+  },
+  "E01032775": {
+    "name": "Tower Hamlets 031F",
+    "imdScore": 7.07,
+    "imdDecile": 9,
+    "population": 1194
+  },
+  "E01032776": {
+    "name": "Tower Hamlets 034D",
+    "imdScore": 11.33,
+    "imdDecile": 7,
+    "population": 2211
+  },
+  "E01032777": {
+    "name": "Tower Hamlets 035A",
+    "imdScore": 24.81,
+    "imdDecile": 4,
+    "population": 1352
+  },
+  "E01032779": {
+    "name": "Tower Hamlets 035C",
+    "imdScore": 15.76,
+    "imdDecile": 6,
+    "population": 1480
+  },
+  "E01032780": {
+    "name": "Tower Hamlets 035D",
+    "imdScore": 19.01,
+    "imdDecile": 5,
+    "population": 3014
+  },
+  "E01032781": {
+    "name": "Tower Hamlets 033C",
+    "imdScore": 11.79,
+    "imdDecile": 7,
+    "population": 1721
+  },
+  "E01032782": {
+    "name": "Tower Hamlets 033D",
+    "imdScore": 21.99,
+    "imdDecile": 4,
+    "population": 2748
+  },
+  "E01032783": {
+    "name": "Tower Hamlets 031G",
+    "imdScore": 24.85,
+    "imdDecile": 4,
+    "population": 1310
+  },
+  "E01032784": {
+    "name": "Tower Hamlets 004G",
+    "imdScore": 15.45,
+    "imdDecile": 6,
+    "population": 1788
+  },
+  "E01032785": {
+    "name": "Tower Hamlets 010E",
+    "imdScore": 18.72,
+    "imdDecile": 5,
+    "population": 2634
+  },
+  "E01032786": {
+    "name": "Tower Hamlets 010F",
+    "imdScore": 35.5,
+    "imdDecile": 2,
+    "population": 1678
+  },
+  "E01032787": {
+    "name": "Tower Hamlets 011F",
+    "imdScore": 41.24,
+    "imdDecile": 2,
+    "population": 2542
+  },
+  "E01035657": {
+    "name": "Tower Hamlets 001E",
+    "imdScore": 13.27,
+    "imdDecile": 7,
+    "population": 1052
+  },
+  "E01035658": {
+    "name": "Tower Hamlets 001F",
+    "imdScore": 15.34,
+    "imdDecile": 6,
+    "population": 1520
+  },
+  "E01035659": {
+    "name": "Tower Hamlets 001G",
+    "imdScore": 37.04,
+    "imdDecile": 2,
+    "population": 1596
+  },
+  "E01035660": {
+    "name": "Tower Hamlets 002E",
+    "imdScore": 33.97,
+    "imdDecile": 2,
+    "population": 1500
+  },
+  "E01035661": {
+    "name": "Tower Hamlets 002F",
+    "imdScore": 41.34,
+    "imdDecile": 2,
+    "population": 1647
+  },
+  "E01035662": {
+    "name": "Tower Hamlets 004H",
+    "imdScore": 15.63,
+    "imdDecile": 6,
+    "population": 1045
+  },
+  "E01035663": {
+    "name": "Tower Hamlets 004I",
+    "imdScore": 24.16,
+    "imdDecile": 4,
+    "population": 1358
+  },
+  "E01035664": {
+    "name": "Tower Hamlets 006E",
+    "imdScore": 31.66,
+    "imdDecile": 3,
+    "population": 2563
+  },
+  "E01035665": {
+    "name": "Tower Hamlets 008F",
+    "imdScore": 21.17,
+    "imdDecile": 5,
+    "population": 1509
+  },
+  "E01035666": {
+    "name": "Tower Hamlets 008G",
+    "imdScore": 32.29,
+    "imdDecile": 3,
+    "population": 1957
+  },
+  "E01035667": {
+    "name": "Tower Hamlets 008H",
+    "imdScore": 34.87,
+    "imdDecile": 2,
+    "population": 2001
+  },
+  "E01035668": {
+    "name": "Tower Hamlets 009E",
+    "imdScore": 33.4,
+    "imdDecile": 3,
+    "population": 2054
+  },
+  "E01035669": {
+    "name": "Tower Hamlets 009F",
+    "imdScore": 30.29,
+    "imdDecile": 3,
+    "population": 1370
+  },
+  "E01035670": {
+    "name": "Tower Hamlets 010G",
+    "imdScore": 26.0,
+    "imdDecile": 4,
+    "population": 4759
+  },
+  "E01035671": {
+    "name": "Tower Hamlets 012F",
+    "imdScore": 20.84,
+    "imdDecile": 5,
+    "population": 2267
+  },
+  "E01035672": {
+    "name": "Tower Hamlets 012G",
+    "imdScore": 42.87,
+    "imdDecile": 2,
+    "population": 3019
+  },
+  "E01035673": {
+    "name": "Tower Hamlets 012H",
+    "imdScore": 29.93,
+    "imdDecile": 3,
+    "population": 1109
+  },
+  "E01035674": {
+    "name": "Tower Hamlets 014F",
+    "imdScore": 23.52,
+    "imdDecile": 4,
+    "population": 1398
+  },
+  "E01035675": {
+    "name": "Tower Hamlets 014G",
+    "imdScore": 31.98,
+    "imdDecile": 3,
+    "population": 1865
+  },
+  "E01035676": {
+    "name": "Tower Hamlets 014H",
+    "imdScore": 40.38,
+    "imdDecile": 2,
+    "population": 1604
+  },
+  "E01035677": {
+    "name": "Tower Hamlets 014I",
+    "imdScore": 34.11,
+    "imdDecile": 2,
+    "population": 1581
+  },
+  "E01035678": {
+    "name": "Tower Hamlets 018E",
+    "imdScore": 26.23,
+    "imdDecile": 4,
+    "population": 2002
+  },
+  "E01035679": {
+    "name": "Tower Hamlets 018F",
+    "imdScore": 26.22,
+    "imdDecile": 4,
+    "population": 1629
+  },
+  "E01035680": {
+    "name": "Tower Hamlets 019E",
+    "imdScore": 22.45,
+    "imdDecile": 4,
+    "population": 1846
+  },
+  "E01035681": {
+    "name": "Tower Hamlets 019F",
+    "imdScore": 42.03,
+    "imdDecile": 2,
+    "population": 2070
+  },
+  "E01035682": {
+    "name": "Tower Hamlets 019G",
+    "imdScore": 41.96,
+    "imdDecile": 2,
+    "population": 1545
+  },
+  "E01035683": {
+    "name": "Tower Hamlets 019H",
+    "imdScore": 39.4,
+    "imdDecile": 2,
+    "population": 1861
+  },
+  "E01035684": {
+    "name": "Tower Hamlets 020E",
+    "imdScore": 39.12,
+    "imdDecile": 2,
+    "population": 1716
+  },
+  "E01035685": {
+    "name": "Tower Hamlets 020F",
+    "imdScore": 50.31,
+    "imdDecile": 1,
+    "population": 1560
+  },
+  "E01035686": {
+    "name": "Tower Hamlets 021G",
+    "imdScore": 32.73,
+    "imdDecile": 3,
+    "population": 1892
+  },
+  "E01035687": {
+    "name": "Tower Hamlets 021H",
+    "imdScore": 21.92,
+    "imdDecile": 4,
+    "population": 1901
+  },
+  "E01035688": {
+    "name": "Tower Hamlets 021I",
+    "imdScore": 12.26,
+    "imdDecile": 7,
+    "population": 2390
+  },
+  "E01035689": {
+    "name": "Tower Hamlets 021J",
+    "imdScore": 18.64,
+    "imdDecile": 5,
+    "population": 1827
+  },
+  "E01035690": {
+    "name": "Tower Hamlets 023E",
+    "imdScore": 16.61,
+    "imdDecile": 6,
+    "population": 2106
+  },
+  "E01035691": {
+    "name": "Tower Hamlets 023F",
+    "imdScore": 14.37,
+    "imdDecile": 6,
+    "population": 1982
+  },
+  "E01035692": {
+    "name": "Tower Hamlets 024E",
+    "imdScore": 27.51,
+    "imdDecile": 3,
+    "population": 1418
+  },
+  "E01035693": {
+    "name": "Tower Hamlets 024F",
+    "imdScore": 24.33,
+    "imdDecile": 4,
+    "population": 1617
+  },
+  "E01035694": {
+    "name": "Tower Hamlets 024G",
+    "imdScore": 46.12,
+    "imdDecile": 1,
+    "population": 2300
+  },
+  "E01035695": {
+    "name": "Tower Hamlets 024H",
+    "imdScore": 43.26,
+    "imdDecile": 2,
+    "population": 1686
+  },
+  "E01035696": {
+    "name": "Tower Hamlets 026E",
+    "imdScore": 13.93,
+    "imdDecile": 7,
+    "population": 1403
+  },
+  "E01035697": {
+    "name": "Tower Hamlets 026F",
+    "imdScore": 21.96,
+    "imdDecile": 4,
+    "population": 1802
+  },
+  "E01035698": {
+    "name": "Tower Hamlets 032F",
+    "imdScore": 13.79,
+    "imdDecile": 7,
+    "population": 1064
+  },
+  "E01035699": {
+    "name": "Tower Hamlets 032G",
+    "imdScore": 19.4,
+    "imdDecile": 5,
+    "population": 1839
+  },
+  "E01035700": {
+    "name": "Tower Hamlets 034A",
+    "imdScore": 5.85,
+    "imdDecile": 9,
+    "population": 1295
+  },
+  "E01035701": {
+    "name": "Tower Hamlets 034B",
+    "imdScore": 7.03,
+    "imdDecile": 9,
+    "population": 1333
+  },
+  "E01035702": {
+    "name": "Tower Hamlets 034C",
+    "imdScore": 30.44,
+    "imdDecile": 3,
+    "population": 1847
+  },
+  "E01035703": {
+    "name": "Tower Hamlets 036B",
+    "imdScore": 7.07,
+    "imdDecile": 9,
+    "population": 1366
+  },
+  "E01035704": {
+    "name": "Tower Hamlets 036C",
+    "imdScore": 21.35,
+    "imdDecile": 5,
+    "population": 1782
+  },
+  "E01035705": {
+    "name": "Tower Hamlets 036D",
+    "imdScore": 35.7,
+    "imdDecile": 2,
+    "population": 1428
+  },
+  "E01035706": {
+    "name": "Tower Hamlets 036E",
+    "imdScore": 13.54,
+    "imdDecile": 7,
+    "population": 1338
+  }
+}
