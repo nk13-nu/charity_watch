@@ -24,6 +24,8 @@ from charity_watch_streamlit.services.helpers import (identify_comissioning_gaps
 from charity_watch_streamlit.services.map import build_map
 from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 
+from streamlit_extras.metric_cards import style_metric_cards
+
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
 
