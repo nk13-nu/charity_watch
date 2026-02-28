@@ -62,6 +62,18 @@ def get_gap_codes():
     """"""
     return set(lsoa_gdf[lsoa_gdf["is_gap"]]["LSOA21CD"])
 
+
+imd_categories_breakdown = {
+    "incomeScore":"Income",
+    "employmentRate":'Employement',
+    "educationSkillsTrainingScore": "Education",
+    "healthDeprivation":"Health",
+    "crimeDeprivation" :"Crime",
+    "housingBarriersDeprivation":"Housing",
+    "livingEnvScore":"Living Environment",
+}
+
+
 ###############################################
 ################ APPLYING STYLE ###############
 ###############################################
