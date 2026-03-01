@@ -25,7 +25,6 @@ def get_imd_rankings_per_lsoa(df):
 
 def build_spider_chart(lsoa_code, df):
     lsoa_ranks = get_imd_rankings_per_lsoa(df).get(lsoa_code)
-    lsoa_ranks = lsoa_ranks.get(lsoa_code)
     
     if not lsoa_ranks:
         return None
