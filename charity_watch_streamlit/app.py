@@ -187,11 +187,14 @@ with info_columns:
             #and add it to the app through st
             #st.plotly_chart(fig_bubble, use_container_width=True, key="bubble_selected")
 
+            #we create columns for the spider and bubble charts
             spider_column, bubble_column = st.columns(2)
+            #we add the spider chart to its column
             with spider_column:
                  spider_figure = build_spider_chart(clicked_lsoa, df)
                  if spider_figure:
                     st.plotly_chart(spider_figure, use_container_width=True, key="radar_selected")
+            #and we also add the bubble chart to its column now
             with bubble_column:
                 bubble_figure = build_bubble_chart(charities_here)
                 st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
