@@ -23,6 +23,7 @@ from charity_watch_streamlit.services.helpers import (identify_comissioning_gaps
 
 from charity_watch_streamlit.services.map import build_map
 from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
+from charity_watch_streamlit.services.spider_diagram import build_spider_chart
 
 from streamlit_extras.metric_cards import style_metric_cards
 
@@ -72,6 +73,21 @@ imd_categories_breakdown = {
     "housingBarriersDeprivation":"Housing",
     "livingEnvScore":"Living Environment",
 }
+
+@st.cache_data
+def get_imd_rankings_per_lsoa(df):
+    imd_column_names = list(imd_categories_breakdown.keys())
+    lsoa_imd_scores = df.drop_duplicates(subset="lsoaCode")[["lsoaCode"] + imd_column_names].copy()
+    for i, j in imd_categories_breakdown.items():
+        lsoa_imd_scores[f"{i}_percentage"] = lsoa_imd_scores[i].rank(pct=True) * 100
+
+    lsoa_imd_dict = {}
+    for _, j in lsoa_imd_scores.iterrows():
+        lsoa_code = j["lsoaCode"]
+        lsoa_imd_dict[lsoa_code] = {
+            label: round(j[f"{i}_percentage"], 1) for i, label in imd_categories_breakdown.items()}
+    return lsoa_imd_dict
+
 
 
 ###############################################
@@ -167,9 +183,18 @@ with info_columns:
                     st.session_state.selected_charity = charity_id
 
             # now we also instantiate the bubble chart
-            fig_bubble = build_bubble_chart(df, charities_here)
+            #fig_bubble = build_bubble_chart(df, charities_here)
             #and add it to the app through st
-            st.plotly_chart(fig_bubble, use_container_width=True, key="bubble_selected")
+            #st.plotly_chart(fig_bubble, use_container_width=True, key="bubble_selected")
+
+            spider_column, bubble_column = st.columns(2)
+            with spider_column:
+                 spider_figure = build_spider_chart(clicked_lsoa, df)
+                 if spider_figure:
+                    st.plotly_chart(spider_figure, use_container_width=True, key="radar_selected")
+            with bubble_column:
+                bubble_figure = build_bubble_chart(charities_here)
+                st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
         #If there are no charities in the lsoa we check for a commissionnig gap
         else:
             #if the clicked lsoa code is in the get_gap_codes dictionary (large imd score and no charities)
