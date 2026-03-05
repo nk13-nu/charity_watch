@@ -94,3 +94,38 @@ def retrieve_lsoa_specific_data_from_click(lsoa_gdf: gpd.GeoDataFrame, lsoa_map_
         return match.iloc[0]['LSOA21CD']
     #else we return none
     return None
+
+def process_financial_history(api_json_response: List[Dict]) -> pd.DataFrame:
+    """
+    Gets the response in JSON from the api and converts it into a dataframe.
+    """
+    #we define an empty list to parse the api data which will store dictionaries
+    financial_data = []
+        
+    #for every available record 
+    for i in api_json_response:
+            #we first extract the year and take only the year leaving the month and day behind
+            year = i["financial_period_end_date"][:4]
+            #then we take the income, if it is contained else we append 0
+            income = i["income"] or 0
+            #now we take the charity's expenditure
+            expenditure = i["expenditure"] or 0
+            #and finally we take the government grants
+            government_grants = i["income_from_govt_grants"] or 0
+            
+            #now we append the whole record (for that specific year) into the list 
+            financial_data.append({
+                "Year": int(year),
+                "Income": income,
+                "Expenditure": expenditure,
+                "Govt Grants": government_grants
+            })
+            
+    #and we convert the list into a dataframe 
+    df = pd.DataFrame(financial_data)
+        
+    #finally we sort the values by year to make sure that the plotting works correclty and do a bit of defensive programming
+    if not df.empty:
+         df.sort_values(by="Year", inplace=True)
+
+    return df
