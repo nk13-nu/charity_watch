@@ -27,6 +27,10 @@ from charity_watch_streamlit.services.spider_diagram import build_spider_chart
 
 from streamlit_extras.metric_cards import style_metric_cards
 
+from services.api_line_chart import build_charity_income_line_chart
+from services.helpers import process_financial_history
+from services.load_api_data import get_charity_financial_history
+
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
 
@@ -182,22 +186,12 @@ with info_columns:
                 if st.button(f"{c['name']}", key=f"charity_{charity_id}", use_container_width=True):
                     st.session_state.selected_charity = charity_id
 
-            # now we also instantiate the bubble chart
-            #fig_bubble = build_bubble_chart(df, charities_here)
-            #and add it to the app through st
-            #st.plotly_chart(fig_bubble, use_container_width=True, key="bubble_selected")
+            spider_figure = build_spider_chart(clicked_lsoa, df)
+            if spider_figure:
+                st.plotly_chart(spider_figure, use_container_width=True, key="radar_selected")
 
-            #we create columns for the spider and bubble charts
-            spider_column, bubble_column = st.columns(2)
-            #we add the spider chart to its column
-            with spider_column:
-                 spider_figure = build_spider_chart(clicked_lsoa, df)
-                 if spider_figure:
-                    st.plotly_chart(spider_figure, use_container_width=True, key="radar_selected")
-            #and we also add the bubble chart to its column now
-            with bubble_column:
-                bubble_figure = build_bubble_chart(charities_here)
-                st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
+            bubble_figure = build_bubble_chart(df, charities_here)
+            st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
         #If there are no charities in the lsoa we check for a commissionnig gap
         else:
             #if the clicked lsoa code is in the get_gap_codes dictionary (large imd score and no charities)
@@ -325,18 +319,26 @@ if st.session_state.selected_charity is not None:
             st.text(f"Aim: {charity.get("aim", "No aim registered")}")
             st.text(f'Location: {charity.get("address", "No Address Registered")}, {charity.get("postcode", "")}')
 
-            #implementing google streetview.
-            #if the charity contains both a latitude and a longitude then
-            if pd.notna(charity.get("lat")) and pd.notna(charity.get("lng")):
-                #we render a markdown window with streetview
-                st.markdown(f"""
-                <div class="cw-streetview" style="margin-top:16px;  display:flex; justify-content:left;">
-                    <iframe
-                        width="45%" height="350" frameborder="0" loading="lazy"
-                        src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location={charity["lat"]},{charity["lng"]}&heading=210&pitch=10&fov=75">
-                    </iframe>
-                </div>
-                """, unsafe_allow_html=True)
+            #creating two columns for the streetview and the financial data api chart
+            streetview_col, financial_data_col = st.columns(2)
+            #on the streetview column we add the streetview pane
+            with streetview_col:
+                if pd.notna(charity.get("lat")) and pd.notna(charity.get("lng")):
+                    #we render a markdown window with streetview
+                    st.markdown(f"""
+                    <div class="cw-streetview" style="margin-top:16px;  display:flex; justify-content:left;">
+                        <iframe
+                            width="100%" height="350" frameborder="0" loading="lazy"
+                            src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location={charity["lat"]},{charity["lng"]}&heading=210&pitch=10&fov=75">
+                        </iframe>
+                    </div>
+                    """, unsafe_allow_html=True)
+            #and on the financial data line chart column we call the defined functions to:
+            with financial_data_col:
+                 #create a dataframe by calling the api using the selected charity's id and then processing the data into a df
+                 financial_hist_df = process_financial_history(get_charity_financial_history(charity_id= charity['id']))
+                 #and then passing that df into the line chart builder function
+                 build_charity_income_line_chart(charity['name'], financial_hist_df)
 
             st.markdown("<br>", unsafe_allow_html=True)
 
