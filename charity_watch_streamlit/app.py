@@ -120,7 +120,7 @@ map_columns, info_columns = st.columns([5,4])
 #using the map columns we build the map using the build map method
 with map_columns:
     folium_map = build_map(lsoa_gdf, deprivation_colour=deprivation_colour)
-    charity_map_data = st_folium(folium_map, width=None, height=650)
+    charity_map_data = st_folium(folium_map, width=None, height=650, key='charity_map')
 
 #we constantly check the map for clicks and when we get one the method defined in the helper module gets called, giving us data for that lsoa
 clicked_lsoa = retrieve_lsoa_specific_data_from_click(lsoa_gdf, charity_map_data.get("last_clicked") if charity_map_data else None)
@@ -261,7 +261,7 @@ else:
     with c4:
         st.text(f"LSOA Charity Coverage {df["lsoaCode"].nunique()}/{len(df)}")
     with info_columns:
-         with stylable_container('Click an LSOA Card', css_styles=click_an_lsoa_on_map_style):
+         with stylable_container('Click an LSOA Card Default', css_styles=click_an_lsoa_on_map_style):
               st.markdown(f"""<div 
                                 style="
                                 font-size: 22px;
