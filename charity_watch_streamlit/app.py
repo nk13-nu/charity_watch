@@ -1,23 +1,18 @@
 #Imports
 import streamlit as st #streamlit for the app
 import pandas as pd #pandas for data manipulation
-import json #json to work with json files
-import folium
 from streamlit_folium import st_folium
-import pydeck as pdk
-from pathlib import Path
 from streamlit_extras.stylable_container import stylable_container #using streamlit extras to style cards with ease (https://medium.com/snowflake/style-and-customize-your-streamlit-in-snowflake-apps-4a8495b8e469)
 
 #importing custom style
-from charity_watch_streamlit.style.style import app_style_design, APP_COLOUR_PALETTE, statistic_cards_style, statistic_cards_small_style, bottom_cards_style, click_an_lsoa_on_map_style
+from charity_watch_streamlit.style.style import app_style_design, statistic_cards_style, bottom_cards_style, click_an_lsoa_on_map_style
 
 #importing services/methods
 from charity_watch_streamlit.services.load_data import (load_charities as _load_charities, 
                                                         load_lsoa_gdf as _load_lsoa_gdf, 
                                                         load_imd as _load_imd)
 
-from charity_watch_streamlit.services.helpers import (identify_comissioning_gaps, 
-                                                      deprivation_colour, 
+from charity_watch_streamlit.services.helpers import (deprivation_colour, 
                                                       retrieve_lsoa_specific_data_from_click, 
                                                       income_formatting)
 
@@ -25,7 +20,6 @@ from charity_watch_streamlit.services.map import build_map
 from charity_watch_streamlit.services.bubble_chart import build_bubble_chart
 from charity_watch_streamlit.services.spider_diagram import build_spider_chart
 
-from streamlit_extras.metric_cards import style_metric_cards
 
 from services.api_line_chart import build_charity_income_line_chart
 from services.helpers import process_financial_history
