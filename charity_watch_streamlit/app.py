@@ -187,7 +187,7 @@ if clicked_lsoa:
     charities_here = df[df["lsoaCode"] == clicked_lsoa]
 
     #display text signaling which lsoa is selected
-    st.text(f'Showing: {lsoa_name}')
+    #st.text(f'Showing: {lsoa_name}')
 
     #set 4 columns
     c1, c2, c3, c4 = st.columns(4)

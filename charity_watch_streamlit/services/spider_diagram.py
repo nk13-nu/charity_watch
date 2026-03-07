@@ -36,6 +36,9 @@ def build_spider_chart(lsoa_code, df):
 
     fig = go.Figure()
 
+    fig.update_layout(title = dict(text = 'Selected LSOA Deprivation Breakdown'))
+
+
     fig.add_trace(go.Scatterpolar(
     r = imd_scores,
     theta =lsoas,
