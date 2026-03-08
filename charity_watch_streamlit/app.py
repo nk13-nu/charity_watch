@@ -116,6 +116,17 @@ with map_columns:
     folium_map = build_map(lsoa_gdf, deprivation_colour=deprivation_colour)
     charity_map_data = st_folium(folium_map, width=None, height=650, key='charity_map')
 
+    st.markdown("""
+    <div style="display:flex; gap:16px; flex-wrap:wrap; padding:8px 0; font-size:13px;">
+        <span><span style="background:#dc2626; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥40 Very High</span>
+        <span><span style="background:#ef4444; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥30 High</span>
+        <span><span style="background:#f97316; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥24 Medium</span>
+        <span><span style="background:#eab308; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥20 Low-Mid</span>
+        <span><span style="background:#84cc16; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥15 Low</span>
+        <span><span style="background:#22c55e; padding:2px 10px; border-radius:3px;">&nbsp;</span> &lt;15 Very Low</span>
+        <span><span style="background:#f87171; padding:2px 10px; border-radius:3px; border:2px dashed #fff;">&nbsp;</span> Commissioning Gap</span>
+    </div>
+    """, unsafe_allow_html=True)
 #we constantly check the map for clicks and when we get one the method defined in the helper module gets called, giving us data for that lsoa
 clicked_lsoa = retrieve_lsoa_specific_data_from_click(lsoa_gdf, charity_map_data.get("last_clicked") if charity_map_data else None)
 
@@ -164,8 +175,12 @@ with info_columns:
             if spider_figure:
                 st.plotly_chart(spider_figure, use_container_width=True, key="radar_selected")
 
-            bubble_figure = build_bubble_chart(df, charities_here)
-            st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
+            #bubble_figure = build_bubble_chart(df, charities_here)
+            #st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
+            
+            activities = charities_here["primaryFocus"].dropna().unique()
+            if len(activities) > 0:
+                st.text(f"Activities: {', '.join(sorted(activities))}")
         #If there are no charities in the lsoa we check for a commissionnig gap
         else:
             #if the clicked lsoa code is in the get_gap_codes dictionary (large imd score and no charities)
