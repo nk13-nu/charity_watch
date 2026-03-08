@@ -23,7 +23,7 @@ from charity_watch_streamlit.services.spider_diagram import build_spider_chart
 
 from services.api_line_chart import build_charity_income_line_chart
 from services.helpers import process_financial_history
-from services.load_api_data import get_charity_financial_history
+from services.load_charity_api_data import get_charity_financial_history
 
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
@@ -178,9 +178,9 @@ with info_columns:
             #bubble_figure = build_bubble_chart(df, charities_here)
             #st.plotly_chart(bubble_figure, use_container_width=True, key="bubble_selected")
             
-            activities = charities_here["primaryFocus"].dropna().unique()
-            if len(activities) > 0:
-                st.text(f"Activities: {', '.join(sorted(activities))}")
+            #activities = charities_here["primaryFocus"].dropna().unique()
+            #if len(activities) > 0:
+            #    st.text(f"Activities: {', '.join(sorted(activities))}")
         #If there are no charities in the lsoa we check for a commissionnig gap
         else:
             #if the clicked lsoa code is in the get_gap_codes dictionary (large imd score and no charities)
@@ -204,6 +204,20 @@ if clicked_lsoa:
     #display text signaling which lsoa is selected
     #st.text(f'Showing: {lsoa_name}')
 
+    #displaying the selected charities dataframe and reformatting the column names
+    if len(charities_here) > 0:
+        st.dataframe(charities_here[["name", "income", "expenditure", "sizeBand", "primaryFocus", "postcode"]].rename(columns={
+            "name": "Charity Name",
+            "income": "Income",
+            "expenditure": "Expenditure",
+            "sizeBand": "Size",
+            "primaryFocus": "Primary Focus",
+            "postcode": "Postcode"
+        }),
+        use_container_width=True,
+        hide_index=True
+    )
+
     #set 4 columns
     c1, c2, c3, c4 = st.columns(4)
     #on column 1 we place number of charities in lsoa
@@ -220,14 +234,14 @@ if clicked_lsoa:
                             unsafe_allow_html=True)
     #column 2 takes the total income of the lsoa's charities
     with c2:
-        with stylable_container('Total Last Recorded Income', css_styles=bottom_cards_style):
+        with stylable_container('Total Income', css_styles=bottom_cards_style):
                 st.markdown(f"""<div 
                                 style="
                                 font-size: 22px;
                                 font-weight: 500;
                                 color: #E8F5E9;
                                 letter-spacing: -0.5px;">
-                                {f"Total Last Recorded Income: {income_formatting(charities_here["income"].sum())}"}
+                                {f"Total Income: {income_formatting(charities_here["income"].sum())}"}
                             </div>""",
                             unsafe_allow_html=True)
     #column3 we pass the deprivation score of the lsoa
@@ -259,16 +273,49 @@ else:
     c1, c2, c3, c4 = st.columns(4)
     #ww first display the total number of (small, medium, micro) charities in the dataset/tower hamlets
     with c1:
-        st.text(f"Number of Charities: {len(df)}")
-    #calculate avergae last recorded income across borough and display it
+            with stylable_container('Number of Charities Default', css_styles=bottom_cards_style):
+                    st.markdown(f"""<div 
+                                    style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #E8F5E9;
+                                    letter-spacing: -0.5px;">
+                                    {f"Number of Charities: {len(df)}"}
+                                </div>""",
+                                unsafe_allow_html=True)
     with c2:
-        st.text(f"Average Last Recorded Income: {income_formatting(df["income"].mean())}")
-    #calculate average deprivation score 
+            with stylable_container('Average Income Default', css_styles=bottom_cards_style):
+                    st.markdown(f"""<div 
+                                    style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #E8F5E9;
+                                    letter-spacing: -0.5px;">
+                                    {f"Average Income: {income_formatting(df['income'].mean())}"}
+                                </div>""",
+                                unsafe_allow_html=True)
     with c3:
-        st.text(f"Average Deprivation Score {df["imdScore"].mean()}")
-    #and display the lsoa charity coverage across tower hamlets
+            with stylable_container('Average Deprivation Default', css_styles=bottom_cards_style):
+                    st.markdown(f"""<div 
+                                    style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #E8F5E9;
+                                    letter-spacing: -0.5px;">
+                                    {f"Average Deprivation Score: {df['imdScore'].mean():.1f}"}
+                                </div>""",
+                                unsafe_allow_html=True)
     with c4:
-        st.text(f"LSOA Charity Coverage {df["lsoaCode"].nunique()}/{len(df)}")
+            with stylable_container('LSOA Coverage Default', css_styles=bottom_cards_style):
+                    st.markdown(f"""<div 
+                                    style="
+                                    font-size: 18px;
+                                    font-weight: 500;
+                                    color: #E8F5E9;
+                                    letter-spacing: -0.5px;">
+                                    {f"LSOA Charity Coverage: {df['lsoaCode'].nunique()}/{len(lsoa_gdf)}"}
+                                </div>""",
+                                unsafe_allow_html=True)
     with info_columns:
          with stylable_container('Click an LSOA Card Default', css_styles=click_an_lsoa_on_map_style):
               st.markdown(f"""<div 

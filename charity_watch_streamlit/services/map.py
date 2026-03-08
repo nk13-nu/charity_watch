@@ -43,7 +43,7 @@ def build_map(lsoa_gdf: gpd.GeoDataFrame, deprivation_colour: Callable) -> foliu
                 "dashArray": "6 4" if gap else "0",
             },
             #now we define the tooltip text whose texts also depends on whether there is a comissioning gap or not
-            tooltip=f"{' ATTENTION! ' if is_gap else ''}<b>{name}</b> · IMD: {score} · {count} charities{' · COMMISSIONING GAP' if is_gap else ''}",
+            tooltip=f"<b>{name}</b> · IMD: {score} {' · High Deprivation, No local Charities' if is_gap else ''}",
         ).add_to(m) #and add it to the map
 
     return m #finally we return the map obj
