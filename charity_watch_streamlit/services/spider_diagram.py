@@ -36,7 +36,13 @@ def build_spider_chart(lsoa_code, df):
 
     fig = go.Figure()
 
-    fig.update_layout(title = dict(text = 'Selected LSOA Deprivation Breakdown'))
+    fig.update_layout(title = dict(text = 'Selected LSOA Deprivation Breakdown'), polar=dict(
+        radialaxis=dict( visible=True, 
+                        range=[0, 100], 
+                        tickvals=[0, 25, 50, 75, 100],
+                        ticktext=["0", "25", "50", "75", "100"])
+        ),
+        showlegend=False)
 
 
     fig.add_trace(go.Scatterpolar(
