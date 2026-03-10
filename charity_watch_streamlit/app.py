@@ -24,6 +24,7 @@ from charity_watch_streamlit.services.spider_diagram import build_spider_chart
 from services.api_line_chart import build_charity_income_line_chart
 from services.helpers import process_financial_history
 from services.load_charity_api_data import get_charity_financial_history
+from services.similar_charities import build_similarity_matrix, get_similar_charities
 
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
@@ -53,6 +54,7 @@ def load_imd(path: str):
 
 #now we load data 
 df = load_charities("data/charities_with_deprivation.json")
+cosine_sim_matrix = build_similarity_matrix(df)
 lsoa_gdf = _load_lsoa_gdf("data/lsoa_clean.geojson", "data/lsoa_to_imd_mapping.json", "data/charities_with_deprivation.json")
 lsoa_imd = load_imd("data/lsoa_to_imd_mapping.json")
 
@@ -325,7 +327,7 @@ else:
                                 font-weight: 500;
                                 color: #E8F5E9;
                                 letter-spacing: -0.5px;">
-                                {"Click an LSOA on the Map to see all charity information."}
+                                {"Or click an LSOA on the Map to see all charity information for that specific LSOA/Neighbourhood."}
                             </div>""",
                             unsafe_allow_html=True)
 
@@ -375,6 +377,15 @@ if st.session_state.selected_charity is not None:
                  financial_hist_df = process_financial_history(get_charity_financial_history(charity_id= charity['id']))
                  #and then passing that df into the line chart builder function
                  build_charity_income_line_chart(charity['name'], financial_hist_df)
+
+            #we create a dataframe with cosine similarites using the get_similar_charities function
+            similar = get_similar_charities(df, cosine_sim_matrix, charity["id"])
+            #if the dataframe is not empty (that is the charity id was not found)
+            if not similar.empty:
+                #We create a subheader
+                st.subheader("Similar Charities")
+                #and a streamlit dataframe display with the name, focus and similarity of the similar charities to the selected one
+                st.dataframe(similar[["name", "primaryFocus", "similarity"]], hide_index=True, use_container_width=True)
 
             st.markdown("<br>", unsafe_allow_html=True)
 
