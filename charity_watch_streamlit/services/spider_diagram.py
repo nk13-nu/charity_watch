@@ -49,7 +49,7 @@ def build_spider_chart(lsoa_code, df):
     r = imd_scores,
     theta =lsoas,
     fill ="toself",
-    fillcolor ="rgba(248, 113, 113, 0.15)",
+    fillcolor ="rgba(29, 86, 193, 0.15)",
     line =dict(color="#1d56c1", width=2),
     name =f"{lsoa_code}",
     hovertemplate="%{theta}: %{r:.0f}th percentile<extra></extra>",))
