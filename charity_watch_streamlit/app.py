@@ -327,7 +327,7 @@ else:
                                 font-weight: 500;
                                 color: #E8F5E9;
                                 letter-spacing: -0.5px;">
-                                {"Or click an LSOA on the Map to see all charity information for that specific LSOA/Neighbourhood."}
+                                {"Click an LSOA on the Map to see all charity information for that specific LSOA/Neighbourhood."}
                             </div>""",
                             unsafe_allow_html=True)
 
