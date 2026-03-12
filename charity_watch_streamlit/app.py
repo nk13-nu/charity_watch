@@ -54,10 +54,10 @@ def load_imd(path: str):
     return _load_imd(path)
 
 #now we load data 
-df = load_charities("data/charities_with_deprivation.json")
+df = load_charities("charity_watch_streamlit/data/charities_with_deprivation.json")
 cosine_sim_matrix = build_similarity_matrix(df)
-lsoa_gdf = _load_lsoa_gdf("data/lsoa_clean.geojson", "data/lsoa_to_imd_mapping.json", "data/charities_with_deprivation.json")
-lsoa_imd = load_imd("data/lsoa_to_imd_mapping.json")
+lsoa_gdf = _load_lsoa_gdf("charity_watch_streamlit/data/lsoa_clean.geojson", "charity_watch_streamlit/data/lsoa_to_imd_mapping.json", "charity_watch_streamlit/data/charities_with_deprivation.json")
+lsoa_imd = load_imd("charity_watch_streamlit/data/lsoa_to_imd_mapping.json")
 
 @st.cache_data
 def get_gap_codes():
