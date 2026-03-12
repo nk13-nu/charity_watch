@@ -1,11 +1,7 @@
-import os
 import requests
-from dotenv import load_dotenv
+from services.config import get_secret
 
-load_dotenv()
-
-
-API_KEY = os.getenv("CCEW_API_KEY")
+API_KEY = get_secret("CCEW_API_KEY")
 
 #now we define a function to retreive financial charities financial history from the charity commission's api
 def get_charity_financial_history(charity_id:int) -> dict:

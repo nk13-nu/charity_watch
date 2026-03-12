@@ -25,6 +25,7 @@ from services.api_line_chart import build_charity_income_line_chart
 from services.helpers import process_financial_history
 from services.load_charity_api_data import get_charity_financial_history
 from services.similar_charities import build_similarity_matrix, get_similar_charities
+from services.config import get_secret
 
 #Initial page configuration
 st.set_page_config(page_title="Charity Watch", layout='wide', initial_sidebar_state='collapsed')
@@ -373,7 +374,7 @@ if st.session_state.selected_charity is not None:
                     <div class="cw-streetview" style="margin-top:16px;  display:flex; justify-content:left;">
                         <iframe
                             width="100%" height="350" frameborder="0" loading="lazy"
-                            src="https://www.google.com/maps/embed/v1/streetview?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&location={charity["lat"]},{charity["lng"]}&heading=210&pitch=10&fov=75">
+                            src="https://www.google.com/maps/embed/v1/streetview?key={get_secret('GOOGLE_MAPS_API_KEY')}&location={charity['lat']},{charity['lng']}&heading=210&pitch=10&fov=75">
                         </iframe>
                     </div>
                     """, unsafe_allow_html=True)
