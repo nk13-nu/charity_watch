@@ -1,0 +1,11 @@
+streamlit>=1.38.0
+streamlit-folium
+streamlit-extras
+pandas
+geopandas
+folium
+plotly
+shapely
+scikit-learn
+requests
+python-dotenv
