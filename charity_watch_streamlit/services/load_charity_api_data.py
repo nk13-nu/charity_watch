@@ -1,5 +1,5 @@
 import requests
-from services.config import get_secret
+from charity_watch_streamlit.services.config import get_secret
 
 API_KEY = get_secret("CCEW_API_KEY")
 
