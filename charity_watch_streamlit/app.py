@@ -88,7 +88,7 @@ def get_imd_rankings_per_lsoa(df):
             label: round(j[f"{i}_percentage"], 1) for i, label in imd_categories_breakdown.items()}
     return lsoa_imd_dict
 
-
+tower_hamlets_avg_imd = df['imdScore'].mean()
 
 ###############################################
 ################ APPLYING STYLE ###############
@@ -202,6 +202,13 @@ if clicked_lsoa:
     lsoa_name = imd_info.get("name", clicked_lsoa)
     #and all data about charities within the lsoa
     charities_here = df[df["lsoaCode"] == clicked_lsoa]
+    
+    lsoa_score = imd_info.get("imdScore", 0)
+    imd_score_colour = ''
+    if lsoa_score < tower_hamlets_avg_imd:
+         imd_score_colour = "#209c08"
+    elif lsoa_score > tower_hamlets_avg_imd:
+         imd_score_colour = "#b80b02"
 
     #display text signaling which lsoa is selected
     #st.text(f'Showing: {lsoa_name}')
@@ -255,8 +262,7 @@ if clicked_lsoa:
                                 font-weight: 500;
                                 color: #E8F5E9;
                                 letter-spacing: -0.5px;">
-                                {f"Deprivation Score: {imd_info.get("imdScore", "No deprivation score registered")}"}
-                            </div>""",
+                                Deprivation Score: <span style="color: {imd_score_colour};">{lsoa_score}</span></div>""",
                             unsafe_allow_html=True)
     #column 4 for the population
     with c4:

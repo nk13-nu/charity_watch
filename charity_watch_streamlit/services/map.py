@@ -1,7 +1,7 @@
 import folium
 import pandas as pd
 import geopandas as gpd
-from typing import Dict, Any, Callable, Set
+from typing import Callable
 from charity_watch_streamlit.services.helpers import deprivation_colour
 from charity_watch_streamlit.style.style import APP_COLOUR_PALETTE
 

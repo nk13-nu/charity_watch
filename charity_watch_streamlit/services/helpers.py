@@ -1,7 +1,7 @@
 #FUNCTIONS TO CALCULATE STATISTICS AND HELPERS
 import pandas as pd #pandas for data manipulation
 import geopandas as gpd #geopandas for geojson and geo pandas dataframe manipulation
-from typing import Any, Dict, List #any from typing for data typing
+from typing import Dict, List #any from typing for data typing
 from shapely.geometry import Point #to create point vectors out of coordinates
 
 def deprivation_colour(deprivation_score : float | int) -> str:
