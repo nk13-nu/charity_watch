@@ -1,7 +1,7 @@
 import json
 import pandas as pd
 
-df = pd.read_csv('data/clean_data/deprivation_th.csv')
+df = pd.read_csv('../data/clean_data/deprivation_th.csv')
 
 lsoa_to_imd_mapping = {}
 for _, r in df.iterrows():
