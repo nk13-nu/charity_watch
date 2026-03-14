@@ -32,17 +32,16 @@ This repo contains all files used in the development of the project. At the high
 │   ├── charity_data.ipynb
 │   ├── deprivation_data.ipynb
 │   ├── final_dataset.ipynb
+│   ├── fixing_final_dataset.ipynb
 │   ├── lsoa_data.ipynb
 │   ├── lsoa_geojson.ipynb
 │   ├── postcodes.ipynb
-│   └── spider_diagram.ipynb
+│   ├── spider_diagram.ipynb
+│   ├── lsoa_imd.py
+│   └── pipeline.py
 ├── README.md
-├── fixing_final_dataset.ipynb
-├── lsoa_imd.py
-├── pipeline.py
 ├── pyproject.toml
 ├── requirements.txt
-├── todo.md
 └── uv.lock
 ```
 
