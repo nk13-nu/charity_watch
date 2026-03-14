@@ -193,7 +193,7 @@ with info_columns:
             is_gap = clicked_lsoa in get_gap_codes()
             #we say that there is a comissioning gap
             if is_gap:
-                st.text('Commissioning Gap!!!')
+                st.text('Commissioning Gap! This LSOA has a high deprivation score and contains no local charities.')
             else:
                 #if there is not commissioning gap we just say that there are no charities registered at that lsoa
                 st.text('No Charities Registered')
