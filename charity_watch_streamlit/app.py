@@ -120,14 +120,17 @@ with map_columns:
     charity_map_data = st_folium(folium_map, width=None, height=650, key='charity_map')
 
     st.markdown("""
-    <div style="display:flex; gap:16px; flex-wrap:wrap; padding:8px 0; font-size:13px;">
-        <span><span style="background:#dc2626; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥40 Very High</span>
-        <span><span style="background:#ef4444; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥30 High</span>
-        <span><span style="background:#f97316; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥24 Medium</span>
-        <span><span style="background:#eab308; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥20 Low-Mid</span>
-        <span><span style="background:#84cc16; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥15 Low</span>
-        <span><span style="background:#22c55e; padding:2px 10px; border-radius:3px;">&nbsp;</span> &lt;15 Very Low</span>
-        <span><span style="background:#f87171; padding:2px 10px; border-radius:3px; border:2px dashed #fff;">&nbsp;</span> Commissioning Gap</span>
+    <div style="font-size:13px; padding:8px 0;">
+        <div style="font-weight:600; margin-bottom:6px;">Deprivation Levels</div>
+        <div style="display:flex; gap:16px; flex-wrap:wrap;">
+            <span><span style="background:#dc2626; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥40 Very High</span>
+            <span><span style="background:#ef4444; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥30 High</span>
+            <span><span style="background:#f97316; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥24 Medium</span>
+            <span><span style="background:#eab308; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥20 Low-Mid</span>
+            <span><span style="background:#84cc16; padding:2px 10px; border-radius:3px;">&nbsp;</span> ≥15 Low</span>
+            <span><span style="background:#22c55e; padding:2px 10px; border-radius:3px;">&nbsp;</span> &lt;15 Very Low</span>
+            <span><span style="background:#f87171; padding:2px 10px; border-radius:3px; border:2px dashed #fff;">&nbsp;</span> Commissioning Gap (High Deprivation and no charities)</span>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 #we constantly check the map for clicks and when we get one the method defined in the helper module gets called, giving us data for that lsoa
