@@ -82,17 +82,17 @@ charity_watch_streamlit
 ## Dependencies
 To build the app locally you need to have Python 3.10+ and the following packages:
 ```
-- streamlit>=1.38.0
-- streamlit-folium
-- streamlit-extras
-- pandas
-- geopandas
-- folium
-- plotly
-- shapely
-- scikit-learn
-- requests
-- python-dotenv
+streamlit>=1.38.0
+streamlit-folium
+streamlit-extras
+pandas
+geopandas
+folium
+plotly
+shapely
+scikit-learn
+requests
+python-dotenv
 ```
 You can access them via the `requirements.txt` file.
 
