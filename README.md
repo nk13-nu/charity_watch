@@ -80,6 +80,21 @@ charity_watch_streamlit
 └── packages.txt
 ```
 
+## Dependencies
+To build the app locally you need to have Python 3.10+ and the following packages:
+- streamlit>=1.38.0
+- streamlit-folium
+- streamlit-extras
+- pandas
+- geopandas
+- folium
+- plotly
+- shapely
+- scikit-learn
+- requests
+- python-dotenv
+You can access them via the `requirements.txt` file.
+
 ## How to Run
 There are two ways to Run the application.
 ##### 1. Use the deployed app:
@@ -98,4 +113,4 @@ There are two ways to Run the application.
   - Enable the Maps Embed API under APIs & Services
   - Generate an API key under Credentials
   - Add the API key to the .env file by pasting it into `GOOGLE_MAPS_API_KEY="YOUR_KEY_HERE"`
-- You are ready to run. If using uv run `uv run streamlit run app.py ` within the directory.
+- You are ready to run. If using uv set the environment with `uv sync` and then run `uv run streamlit run app.py ` within the charity_watch_streamlit directory.
