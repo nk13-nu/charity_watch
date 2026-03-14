@@ -13,6 +13,7 @@ This application has two main aims. The first is to act as a data tool that allo
 ## Project Structure
 This repo contains all files used in the development of the project. At the highest level there are three main directories: charity_watch_streamlit, notebooks_data_processing and data. Importantly the app itself is fully and independently contained within the `charity_watch_streamlit` directory. The `notebooks_data_processing` directory contains all preprocessing steps to produce the final 4 main datasets used to develop the application, including all notebooks used to explore and clean data and all pipeline and processing scripts. The `data` directory contains all raw, processed and final datasets. Note that the final datasets where themselves later imported within the `charity_watch_streamlit` directory's `data` folder, thus the main app directory can be used independently.
 
+```
 ├── charity_watch_streamlit
 │   ├── data
 │   ├── resources
@@ -43,9 +44,11 @@ This repo contains all files used in the development of the project. At the high
 ├── requirements.txt
 ├── todo.md
 └── uv.lock
+```
 
 ### The App Directory
 
+```
 charity_watch_streamlit
 ├── data
 │   ├── charities_with_deprivation.csv
@@ -75,6 +78,7 @@ charity_watch_streamlit
 ├── __init__.py
 ├── app.py
 └── packages.txt
+```
 
 ## How to Run
 There are two ways to Run the application.
