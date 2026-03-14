@@ -93,6 +93,7 @@ To build the app locally you need to have Python 3.10+ and the following package
 - scikit-learn
 - requests
 - python-dotenv
+
 You can access them via the `requirements.txt` file.
 
 ## How to Run
