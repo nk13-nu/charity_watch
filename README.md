@@ -1,4 +1,4 @@
-# Tower Hamlets Charity App
+# Charity Watch
 
 <p align="center">
   <img src="charity_watch_streamlit/resources/app_logo.png" alt="Charity Watch Logo" width="400">
