@@ -29,7 +29,7 @@ def test_deprivation_colour_high_deprivation_returns_red_colour():
 
 def test_deprivation_colour_high_deprivation_returns_red_colour():
     result = deprivation_colour(8)
-    assert result == "#1ac95a"
+    assert result == "#22c55e"
 
 
 ### Tests for identify_comissioning gaps
