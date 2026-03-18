@@ -5,7 +5,7 @@
 </p>
 
 ## The Problem
-The generation of social capital is fundamental for improving the resilience of communities. For this, the voluntary and community sector (VSC) plays a fundamental role. 
+The generation of social capital is fundamental for improving the resilience of communities. For this, the voluntary and community sector (VSC) plays a fundamental role. However, as the council identifies, there is currently no unified application that allows for the discovery of commissioning gaps, particularly when it comes to micro, small and medium sized charities - charities which are deeply embedded and are directly impactful in the immediate community.
 
 ## Aim
 This application has two main aims. The first is to act as a data tool that allows the council to make more informed commissioning decisions for the borough's charities. The second is to allow charities to understand the social micro-context in which their charities are located and operate in.
